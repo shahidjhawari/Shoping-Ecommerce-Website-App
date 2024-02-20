@@ -1,39 +1,27 @@
 <?php require('top.php') ?>
 
+<style>
+   .item-1 {
+      box-shadow: 1px 1px 5px blueviolet;
+      margin: 10px;
+      min-height: 100px;
+   }
+</style>
+
 <!-- latest product section start -->
-<div class="fashion_section">
-   <div class="container">
-      <h1 class="fashion_taital">Man & Woman Fashion</h1>
-      <div class="fashion_section_2">
-         <div class="row">
-            <?php
-            $get_product = get_product($con, 6);
-            foreach ($get_product as $list) {
-            ?>
-               <div class="col-lg-4 col-sm-4">
-                  <div class="box_main">
-                     <h4 class="shirt_text"><?php echo $list['name'] ?></h4>
-                     <p class="price_text">Price <span style="color: #262626;">Rs. <?php echo $list['price'] ?></span></p>
-                     <div class="tshirt_img"><a href="product.php?id=<?php echo $list['id'] ?>">
-                           <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
-                        </a></div>
-                     <div class="btn_main">
-                        <div class="buy_bt"><a href="#">Buy Now</a>
 
-
-                        </div>
-                        <div class="seemore_bt"><a href="product.php?id=<?php echo $list['id'] ?>">See More</a>
-                           <a href="wishlist.php" class="ml-3" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add to fav</a>
-                           <i class="fa fa-heart" aria-hidden="true"></i>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-            <?php } ?>
-         </div>
-      </div>
+<div class="container text-center">
+  <div class="row box">
+    <div class="col item-1">
+      <img src="images/jhumka-img.png" alt="" width="150px">
+    </div>
+    <div class="col item-1">
+      <img src="images/jhumka-img.png" alt="" width="150px">
+    </div>
    </div>
-   <!-- latest product section end -->
+</div>
+
+<!-- latest product section end -->
 
    <!-- Best Seller section start -->
    <div class="fashion_section">
