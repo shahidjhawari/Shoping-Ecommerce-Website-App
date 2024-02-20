@@ -2,9 +2,11 @@
 
 <style>
    .item-1 {
-      box-shadow: 1px 1px 5px blueviolet;
+      border: 1px solid orange;
       margin: 10px;
       min-height: 100px;
+      min-width: 150px;
+      max-width: 150px;
    }
 </style>
 
@@ -17,7 +19,10 @@
     </div>
     <div class="col item-1">
       <img src="images/jhumka-img.png" alt="" width="150px">
-    </div>
+   </div>
+   <div class="col item-1">
+      <img src="images/jhumka-img.png" alt="" width="150px">
+   </div>
    </div>
 </div>
 
