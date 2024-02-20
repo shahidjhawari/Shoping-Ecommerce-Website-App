@@ -2,36 +2,40 @@
 
 <!-- latest product section start -->
 <div class="container">
-   <h1 class="fashion_taital">Man & Woman Fashion</h1>
+   <h1 class="text-center">Man & Woman Fashion</h1>
    <div class="row">
       <?php
       $get_product = get_product($con, 6);
       $count = 0;
       foreach ($get_product as $list) {
          ?>
-         <div class="col-lg-6 col-md-6 col-sm-6 col-12">
-            <div class="box_main">
-               <h4 class="shirt_text"><?php echo $list['name'] ?></h4>
-               <p class="price_text">Price <span class="text-dark">Rs. <?php echo $list['price'] ?></span></p>
-               <div class="tshirt_img"><a href="product.php?id=<?php echo $list['id'] ?>">
-                     <img class="img-fluid" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
-                  </a></div>
-               <div class="btn_main">
-                  <div class="buy_bt"><a href="#" class="btn btn-primary">Buy Now</a></div>
-                  <div class="seemore_bt">
-                     <a href="product.php?id=<?php echo $list['id'] ?>" class="btn btn-secondary">See More</a>
-                     <a href="wishlist.php" class="btn btn-outline-secondary ml-3" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add to fav <i class="fa fa-heart" aria-hidden="true"></i></a>
+         <div class="col-lg-6 col-md-6 col-sm-12 mb-4">
+            <div class="card">
+               <img class="card-img-top" src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" alt="product images">
+               <div class="card-body">
+                  <h4 class="card-title"><?php echo $list['name'] ?></h4>
+                  <p class="card-text">Price <span style="color: #262626;">Rs. <?php echo $list['price'] ?></span></p>
+                  <div class="d-flex justify-content-between">
+                     <a href="#" class="btn btn-primary">Buy Now</a>
+                     <div>
+                        <a href="product.php?id=<?php echo $list['id'] ?>" class="btn btn-secondary">See More</a>
+                        <a href="wishlist.php" class="btn btn-info ml-3" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add to fav</a>
+                        <i class="fa fa-heart" aria-hidden="true"></i>
+                     </div>
                   </div>
                </div>
             </div>
          </div>
          <?php
          $count++;
-         if ($count % 2 == 0) echo '</div><div class="row fashion_section_2">';
+         if ($count % 2 == 0) {
+            echo '</div><div class="row">';
+         }
       } ?>
    </div>
 </div>
 <!-- latest product section end -->
+
 
 
    <!-- Best Seller section start -->

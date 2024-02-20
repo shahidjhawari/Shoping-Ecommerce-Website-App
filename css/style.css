@@ -32,6 +32,7 @@ body {
     font-weight: normal;
     overflow-x: hidden;
     font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
 }
 
 a {
