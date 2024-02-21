@@ -972,7 +972,8 @@ input.mail_bt::placeholder {
 }
 .cate-pic-own {
     border: 1px solid black;
-    width: 70px;
-    height: 70px;
+    width: 150px;
+    height: 150px;
     border-radius: 50%;
+    z-index: 2;
 }

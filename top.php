@@ -196,7 +196,7 @@ if($mypage=='product.php'){
    </div> -->
 
 
-   <!-- banner section start -->
+  <!-- banner section start -->
 <div class="banner_section layout_padding">
     <div class="container">
         <div id="my_slider" class="carousel slide" data-ride="carousel">
@@ -208,7 +208,7 @@ if($mypage=='product.php'){
                     <div class="carousel-item <?php echo ($active ? 'active' : ''); ?>">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h1 class="banner_taital"><img src="images/alnafeh.png" class="cate-pic-own"></h1>
+                                <h1 class="banner_taital"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" class="cate-pic-own"></h1>
                                 <div class="buynow_bt"><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></div>
                             </div>
                         </div>
@@ -228,6 +228,7 @@ if($mypage=='product.php'){
     </div>
 </div>
 <!-- banner section end -->
+
 
    </div>
    <!-- banner bg main end -->

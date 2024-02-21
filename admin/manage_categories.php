@@ -19,7 +19,7 @@ if(isset($_POST['submit'])){
     $categories=get_safe_value($con,$_POST['categories']);
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
-    move_uploaded_file($image_tmp, "path_to_your_image_directory".$image);
+    move_uploaded_file($image_tmp, PRODUCT_IMAGE_SERVER_PATH.$image);
     
     $res=mysqli_query($con,"select * from categories where categories='$categories'");
     $check=mysqli_num_rows($res);
