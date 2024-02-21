@@ -19,13 +19,7 @@ if(isset($_GET['id'])){
 	<?php
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Detail Page</title>
   <style>
     .product-container {
       max-width: 400px;
@@ -108,9 +102,7 @@ if(isset($_GET['id'])){
       line-height: 1.6;
     }
   </style>
-</head>
 
-<body>
   <div class="product-container">
     <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" alt="full-image" class="product-image">
     <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
@@ -132,12 +124,5 @@ if(isset($_GET['id'])){
     <a href="cart.php" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
     <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
   </div>
-
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-
-</html>
 
 <?php include('footer.php') ?>
