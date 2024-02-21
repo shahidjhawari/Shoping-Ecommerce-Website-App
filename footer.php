@@ -47,7 +47,7 @@
 </script>
 <style>
    #mySidenav {
-      z-index: 2;
+      z-index: 5;
    }
 </style>
 </body>
