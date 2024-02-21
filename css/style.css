@@ -955,3 +955,24 @@ input.mail_bt::placeholder {
 
 
 /* copyright section end */
+.cate-own {
+    height: 80px;
+    width: 80vw;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid black;
+    overflow: scroll;
+}
+.box-own {
+    height: 100%;
+    width: 100px;
+    background: darkblue;
+}
+.cate-pic-own {
+    border: 1px solid black;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+}

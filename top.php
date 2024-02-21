@@ -102,16 +102,6 @@ if($mypage=='product.php'){
          </div>
       </div>
       <!-- header top section start -->
-      <!-- logo section start -->
-      <div class="logo_section">
-         <div class="container">
-            <div class="row">
-               <div class="col-sm-4">
-               </div>
-            </div>
-         </div>
-      </div>
-      <!-- logo section end -->
       <!-- header section start -->
       <div class="header_section">
          <div class="container">
@@ -194,45 +184,50 @@ if($mypage=='product.php'){
    </div>
    </div>
    <!-- header section end -->
+   
+   <!-- <div class="cate-own">
+   <div class="container">
+      <div class="row">
+         <div class="col box-own">Column</div>
+         <div class="col box-own">Column</div>
+         <div class="col box-own">Column</div>
+  </div>
+</div>
+   </div> -->
+
+
    <!-- banner section start -->
-   <div class="banner_section layout_padding">
-      <div class="container">
-         <div id="my_slider" class="carousel slide" data-ride="carousel">
+<div class="banner_section layout_padding">
+    <div class="container">
+        <div id="my_slider" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="row">
-                     <div class="col-sm-12">
-                        <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
-                        <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="row">
-                     <div class="col-sm-12">
-                        <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
-                        <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="row">
-                     <div class="col-sm-12">
-                        <h1 class="banner_taital">Get Start <br>Your favriot shoping</h1>
-                        <div class="buynow_bt"><a href="#">Buy Now</a></div>
-                     </div>
-                  </div>
-               </div>
+                <?php
+                $active = true;
+                foreach ($cat_arr as $index => $list) {
+                    ?>
+                    <div class="carousel-item <?php echo ($active ? 'active' : ''); ?>">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <h1 class="banner_taital"><img src="images/alnafeh.png" class="cate-pic-own"></h1>
+                                <div class="buynow_bt"><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+                    $active = false;
+                }
+                ?>
             </div>
             <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
-               <i class="fa fa-angle-left"></i>
+                <i class="fa fa-angle-left"></i>
             </a>
             <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
-               <i class="fa fa-angle-right"></i>
+                <i class="fa fa-angle-right"></i>
             </a>
-         </div>
-      </div>
-   </div>
-   <!-- banner section end -->
+        </div>
+    </div>
+</div>
+<!-- banner section end -->
+
    </div>
    <!-- banner bg main end -->
