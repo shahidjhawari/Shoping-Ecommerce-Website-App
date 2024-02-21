@@ -47,13 +47,13 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <small>Please enter valid email</small><br>
                         <span class="field_error" id="email_error"></span>
 
-                        <button type="button" class="btn btn-primary" style="width: 100px; margin-top:15px;" onclick="email_sent_otp()">Send OTP</button>
+                        <!-- <button type="button" class="btn btn-primary" style="width: 100px; margin-top:15px;" onclick="email_sent_otp()">Send OTP</button> -->
 
-                        <input type="number" id="email_otp" style="width: 100px; margin-top:15px; margin-bottom:15px;" placeholder="OTP" class="form-control">
+                        <!-- <input type="number" id="email_otp" style="width: 100px; margin-top:15px; margin-bottom:15px;" placeholder="OTP" class="form-control">
 
-                        <button type="button" class="btn btn-primary" onclick="email_verify_otp()">Verify OTP</button>
+                        <button type="button" class="btn btn-primary" onclick="email_verify_otp()">Verify OTP</button> -->
 
-                        <span id="email_otp_result"></span>
+                        <!-- <span id="email_otp_result"></span> -->
                     </div>
                     <div class="form-group">
                         <label for="phoneNumber">Phone Number</label>
@@ -67,7 +67,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <small>Password must be at least 8 characters</small><br>
                         <span class="field_error" id="password_error"></span>
                     </div>
-                    <button type="button" class="btn btn-primary mybtn" onclick="user_register()" disabled id="btn_register">Sign Up</button>
+                    <button type="button" class="btn btn-primary mybtn" onclick="user_register()" id="btn_register">Sign Up</button>
                 </form>
                 <div class="form-output register_msg">
                     <p class="form-messege field_error"></p>
