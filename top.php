@@ -199,7 +199,7 @@ if($mypage=='product.php'){
   <!-- banner section start -->
 <div class="banner_section layout_padding">
     <div class="container">
-        <div id="my_slider" class="carousel slide" data-ride="carousel">
+        <div id="my_slider" class="carousel slide my_slider" data-ride="carousel">
             <div class="carousel-inner">
                 <?php
                 $active = true;
@@ -218,10 +218,10 @@ if($mypage=='product.php'){
                 }
                 ?>
             </div>
-            <a class="carousel-control-prev" href="#my_slider" role="button" data-slide="prev">
+            <a class="carousel-control-prev own-car" href="#my_slider" role="button" data-slide="prev">
                 <i class="fa fa-angle-left"></i>
             </a>
-            <a class="carousel-control-next" href="#my_slider" role="button" data-slide="next">
+            <a class="carousel-control-next own-car" href="#my_slider" role="button" data-slide="next">
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>

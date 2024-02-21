@@ -975,5 +975,12 @@ input.mail_bt::placeholder {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    z-index: 2;
+    
+}
+.my_slider {
+    z-index: 4;
+    margin-top: -50px;
+}
+.own-car {
+    margin-top: 60px;
 }
