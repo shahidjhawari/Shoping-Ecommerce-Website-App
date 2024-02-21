@@ -208,7 +208,7 @@ if($mypage=='product.php'){
                     <div class="carousel-item <?php echo ($active ? 'active' : ''); ?>">
                         <div class="row">
                             <div class="col-sm-12">
-                                <h1 class="banner_taital"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" class="cate-pic-own"></h1>
+                                <h1 class="banner_taital"><a href="categories.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" class="cate-pic-own"></a></h1>
                                 <div class="buynow_bt"><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></div>
                             </div>
                         </div>
