@@ -114,13 +114,13 @@ if(isset($_GET['id'])){
   <div class="product-container">
     <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" alt="full-image" class="product-image">
     <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
+    <div class="product-short-description">
+      <?php echo $get_product['0']['description'] ?>
+    </div>
     <div class="product-price">Rs. <?php echo $get_product['0']['price'] ?></div>
     <div class="old-price">Rs. <?php echo $get_product['0']['mrp'] ?></div>
     <div class="product-categories">
       <?php echo $get_product['0']['categories'] ?>
-    </div>
-    <div class="product-short-description">
-      <?php echo $get_product['0']['description'] ?>
     </div>
     <div class="product-long-description"><?php echo $get_product['0']['description'] ?></div>
 
