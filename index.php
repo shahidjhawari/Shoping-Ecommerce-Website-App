@@ -10,7 +10,7 @@
    }
 
    .box {
-      margin-left: 2px;
+      margin-left: auto;
    }
 
    h6 {
