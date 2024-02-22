@@ -22,9 +22,9 @@ if($type=='email'){
 	$mail->Port=587;
 	$mail->SMTPSecure="tls";
 	$mail->SMTPAuth=true;
-	$mail->Username="rtxnawab@gmail.com";
-	$mail->Password="jemwlxrmurtnzewl";
-	$mail->SetFrom("rtxnawab@gmail.com", "NAWAB");
+	$mail->Username="SMTP_EMAIL_ID";
+	$mail->Password="SMTP_EMAIL_PASSWORD";
+	$mail->SetFrom("SMTP_EMAIL_ID");
 	$mail->addAddress($email);
 	$mail->IsHTML(true);
 	$mail->Subject="New OTP";
@@ -40,3 +40,31 @@ if($type=='email'){
 		//echo "Error occur";
 	}
 }
+
+if($type=='mobile'){
+	$mobile=get_safe_value($con,$_POST['mobile']);
+	$check_mobile=mysqli_num_rows(mysqli_query($con,"select * from users where mobile='$mobile'"));
+	if($check_mobile>0){
+		echo "mobile_present";
+		die();
+	}
+	$otp=rand(1111,9999);
+	$_SESSION['MOBILE_OTP']=$otp;
+	$message="$otp is your otp";
+	
+	$mobile='91'.$mobile;
+	$apiKey = urlencode('API_KEY');
+	$numbers = array($mobile);
+	$sender = urlencode('TXTLCL');
+	$message = rawurlencode($message);
+	$numbers = implode(',', $numbers);
+ 	$data = array('apikey' => $apiKey, 'numbers' => $numbers, "sender" => $sender, "message" => $message);
+ 	$ch = curl_init('https://api.textlocal.in/send/');
+	curl_setopt($ch, CURLOPT_POST, true);
+	curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+	$response = curl_exec($ch);
+	curl_close($ch);
+	echo "done";
+}
+?>
