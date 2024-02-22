@@ -30,6 +30,8 @@
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
 <script src="js/custom.js"></script>
+<!-- font awesome -->
+<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
    function openNav() {
       document.getElementById("mySidenav").style.width = "300px";
