@@ -57,7 +57,7 @@ function user_register(){
 					jQuery('#mobile_error').html('Mobile number already present');
 				}
 				if(result=='insert'){
-					jQuery('.register_msg p').html('Thank you for registeration');
+					jQuery('.register_msg p').html('Thank you for registeration, Now you can login!!');
 				}
 			}	
 		});
