@@ -3,19 +3,12 @@ require('top.php');
 if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
 ?>
     <script>
-        window.location.href = 'my_order.php';
+        window.location.href = 'index.php';
     </script>
 <?php
 }
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registration Page</title>
-    <style>
+<style>
         .myh1 {
             margin-top: 30px;
         }
@@ -28,9 +21,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
             color: red;
         }
     </style>
-</head>
 
-<body>
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -168,7 +159,5 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
             }
         }
     </script>
-</body>
 
-</html>
 <?php include('footer.php') ?>
