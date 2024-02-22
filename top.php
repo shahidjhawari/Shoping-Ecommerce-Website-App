@@ -216,10 +216,13 @@ if($mypage=='product.php'){
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
+        <div id="sub-cate-box">
+                <h3 class="sub-cate-heading">NAWAB</h3>
+                <h3 class="sub-cate-heading">NAWAB</h3>
+                <h3 class="sub-cate-heading">NAWAB</h3>
+                <h3 class="sub-cate-heading">NAWAB</h3>
+        </div>
     </div>
 </div>
+</div>
 <!-- banner section end -->
-
-
-   </div>
-   <!-- banner bg main end -->
