@@ -986,14 +986,17 @@ input.mail_bt::placeholder {
 }
 
 #sub-cate-box {
+    margin-left: 10px;
+    margin-bottom: 20px;
     width: 94vw; 
     height: 50px; 
-    border: 1px solid black; 
+    border: 1px solid rgb(144, 137, 137); 
     margin-top: 20px;
     overflow: auto;
     display: flex;
     flex-direction: row;
     align-items: center;
+    overflow-y: hidden;
   }
   
   .sub-cate-heading {
