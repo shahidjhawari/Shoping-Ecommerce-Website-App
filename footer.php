@@ -15,7 +15,7 @@
             <li><a href="#">Customer Service</a></li>
          </ul>
       </div>
-      <div class="location_main">Help Line Number : <a href="#">+92 300 9712159</a></div>
+      <div class="location_main">Help Line Number : <a href="#">+1 1800 1200 1200</a></div>
    </div>
 </div>
 <!-- footer section end -->
@@ -26,12 +26,16 @@
    </div>
 </div>
 <!-- copyright section end -->
-
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+<script src="js/jquery-3.0.0.min.js"></script>
+<script src="js/plugin.js"></script>
+<script src="js/main.js"></script>
+<!-- sidebar -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
 <script src="js/custom.js"></script>
-<!-- font awesome -->
-<link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script>
    function openNav() {
       document.getElementById("mySidenav").style.width = "300px";
@@ -47,4 +51,5 @@
    }
 </style>
 </body>
+
 </html>

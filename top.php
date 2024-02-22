@@ -65,7 +65,16 @@ if($mypage=='product.php'){
    <link rel="stylesheet" type="text/css" href="css/style.css">
    <!-- Responsive-->
    <link rel="stylesheet" href="css/responsive.css">
+   <!-- fevicon -->
+   <link rel="icon" href="images/fevicon.png" type="image/gif" />
+   <!-- Scrollbar Custom CSS -->
+   <link rel="stylesheet" href="css/jquery.mCustomScrollbar.min.css">
+   <!-- font awesome -->
+   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
    <!--  -->
+   <!-- owl stylesheets -->
+   <!-- My Own Files stylesheets -->
+   <link href="js/main.js" rel="stylesheet">
 </head>
 
 <body>
@@ -216,13 +225,10 @@ if($mypage=='product.php'){
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
-        <div id="sub-cate-box">
-                <h3 class="sub-cate-heading">NAWAB</h3>
-                <h3 class="sub-cate-heading">NAWAB</h3>
-                <h3 class="sub-cate-heading">NAWAB</h3>
-                <h3 class="sub-cate-heading">NAWAB</h3>
-        </div>
     </div>
 </div>
-</div>
 <!-- banner section end -->
+
+
+   </div>
+   <!-- banner bg main end -->
