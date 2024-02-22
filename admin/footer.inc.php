@@ -3,7 +3,7 @@
             <div class="footer-inner bg-white">
                <div class="row">
                   <div class="col-sm-6">
-                     Copyright &copy; <?php echo date('Y')?> Alnafeh Mobile
+                     Copyright &copy; <?php echo date('Y')?> Vishal Gupta
                   </div>
                   
                </div>
