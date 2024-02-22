@@ -225,20 +225,6 @@ if($mypage=='product.php'){
                 <i class="fa fa-angle-right"></i>
             </a>
         </div>
-        <?php
-               $cat_id = $list['id'];
-               $sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
-               if (mysqli_num_rows($sub_cat_res) > 0) {
-               ?>
-                  <div id="sub-cate-box">
-                     <?php
-                     while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
-                        echo '<h3 class="sub-cate-heading"><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></h3>
-													';
-                     }
-                     ?>
-                  <?php } ?>
-                  </div>
     </div>
 </div>
 <!-- banner section end -->

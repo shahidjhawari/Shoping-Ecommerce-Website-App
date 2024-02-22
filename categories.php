@@ -1,19 +1,20 @@
-<?php 
+<?php
 require('top.php');
 
-if(!isset($_GET['id']) && $_GET['id']!=''){
-	?>
-	<script>
-	window.location.href='index.php';
-	</script>
-	<?php
+if(!isset($_GET['id']) || $_GET['id']==''){
+    ?>
+    <script>
+    window.location.href='index.php';
+    </script>
+    <?php
+    exit; // Added to stop further execution if 'id' is not set
 }
 
 $cat_id=mysqli_real_escape_string($con,$_GET['id']);
 
 $sub_categories='';
 if(isset($_GET['sub_categories'])){
-	$sub_categories=mysqli_real_escape_string($con,$_GET['sub_categories']);
+    $sub_categories=mysqli_real_escape_string($con,$_GET['sub_categories']);
 }
 $price_high_selected="";
 $price_low_selected="";
@@ -21,32 +22,33 @@ $new_selected="";
 $old_selected="";
 $sort_order="";
 if(isset($_GET['sort'])){
-	$sort=mysqli_real_escape_string($con,$_GET['sort']);
-	if($sort=="price_high"){
-		$sort_order=" order by product.price desc ";
-		$price_high_selected="selected";	
-	}if($sort=="price_low"){
-		$sort_order=" order by product.price asc ";
-		$price_low_selected="selected";
-	}if($sort=="new"){
-		$sort_order=" order by product.id desc ";
-		$new_selected="selected";
-	}if($sort=="old"){
-		$sort_order=" order by product.id asc ";
-		$old_selected="selected";
-	}
+    $sort=mysqli_real_escape_string($con,$_GET['sort']);
+    if($sort=="price_high"){
+        $sort_order=" order by product.price desc ";
+        $price_high_selected="selected";    
+    }if($sort=="price_low"){
+        $sort_order=" order by product.price asc ";
+        $price_low_selected="selected";
+    }if($sort=="new"){
+        $sort_order=" order by product.id desc ";
+        $new_selected="selected";
+    }if($sort=="old"){
+        $sort_order=" order by product.id asc ";
+        $old_selected="selected";
+    }
 
 }
 
-if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
-	$get_product=get_product($con,'',$cat_id,'','',$sort_order,'',$sub_categories);
+if($cat_id>0){
+    $get_product=get_product($con,'',$cat_id,'','',$sort_order);
 }else{
-	?>
-	<script>
-	window.location.href='index.php';
-	</script>
-	<?php
-}										
+    ?>
+    <script>
+    window.location.href='index.php';
+    </script>
+    <?php
+    exit; // Added to stop further execution if category or subcategory is not valid
+}                                       
 ?>
 
 <style>
@@ -85,6 +87,21 @@ if($cat_id>0 && ($sub_categories!='' && $sub_categories>0)){
    }
 </style>
 <!-- latest product section start -->
+
+<?php
+               $cat_id = $list['id'];
+               $sub_cat_res = mysqli_query($con, "select * from sub_categories where status='1' and categories_id='$cat_id'");
+               if (mysqli_num_rows($sub_cat_res) > 0) {
+               ?>
+                  <div id="sub-cate-box">
+                     <?php
+                     while ($sub_cat_rows = mysqli_fetch_assoc($sub_cat_res)) {
+                        echo '<h3 class="sub-cate-heading"><a href="categories.php?id=' . $list['id'] . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></h3>
+													';
+                     }
+                     ?>
+                  <?php } ?>
+                  </div>
 
 
 
