@@ -17,40 +17,39 @@ function get_safe_value($con,$str){
 	}
 }
 
-function get_product($con,$limit='',$cat_id='',$product_id='',$search_str='',$sort_order='',$is_best_seller='',$sub_categories=''){
-	$sql="select product.*,categories.categories from product,categories where product.status=1 ";
-	if($cat_id!=''){
-		$sql.=" and product.categories_id=$cat_id ";
-	}
-	if($product_id!=''){
-		$sql.=" and product.id=$product_id ";
-	}
-	if($sub_categories!=''){
-		$sql.=" and product.sub_categories_id=$sub_categories ";
-	}
+
+
+function get_product($con, $limit='',$cat_id='',$sub_categories='',$search_str='',$sort_order='',$product_id='',$is_best_seller=''){
+    $sql="select product.*,categories.categories from product,categories where product.status=1 ";
+    if($cat_id!=''){
+        $sql.=" and product.categories_id=$cat_id ";
+    }
+    if($sub_categories!=''){
+        $sql.=" and product.sub_categories_id=$sub_categories ";
+    }
+    if($search_str!=''){
+        $sql.=" and (product.name like '%$search_str%' or product.description like '%$search_str%' or product.meta_title like '%$search_str%' or product.meta_description like '%$search_str%' or product.meta_keyword like '%$search_str%')";
+    }
+    if($product_id!=''){
+        $sql.=" and product.id=$product_id ";
+    }
 	if($is_best_seller!=''){
 		$sql.=" and product.best_seller=1 ";
 	}
-	$sql.=" and product.categories_id=categories.id ";
-	if($search_str!=''){
-		$sql.=" and (product.name like '%$search_str%' or product.description like '%$search_str%') ";
-	}
-	if($sort_order!=''){
-		$sql.=$sort_order;
-	}else{
-		$sql.=" order by product.id desc ";
-	}
-	if($limit!=''){
-		$sql.=" limit $limit";
-	}
-	//echo $sql;
-	$res=mysqli_query($con,$sql);
-	$data=array();
-	while($row=mysqli_fetch_assoc($res)){
-		$data[]=$row;
-	}
-	return $data;
+    $sql.=" and product.categories_id=categories.id ";
+    $sql.=" $sort_order ";
+    if($limit!=''){
+        $sql.=" limit $limit ";
+    }
+    // Log the SQL query for debugging
+    $res=mysqli_query($con,$sql);
+    $data=array();
+    while($row=mysqli_fetch_assoc($res)){
+        $data[]=$row;
+    }
+    return $data;
 }
+
 
 function wishlist_add($con,$uid,$pid){
 	$added_on=date('Y-m-d h:i:s');
