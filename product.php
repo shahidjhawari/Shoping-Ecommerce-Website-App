@@ -103,11 +103,11 @@ if(isset($_GET['id'])){
     }
   </style>
 
-  <div class="product-container">
+<div class="container">
     <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" alt="full-image" class="product-image">
 
     <div id="multi-img-box">
-      <img src="images/laptop-img.png" alt="">
+      <img src="images/laptop-img.png" alt="" width="50px">
     </div>
 
     <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
@@ -129,5 +129,6 @@ if(isset($_GET['id'])){
     <a href="cart.php" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
     <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
   </div>
+</div>
 
 <?php include('footer.php') ?>
