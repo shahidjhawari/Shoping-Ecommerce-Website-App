@@ -1,31 +1,31 @@
-<?php 
+<?php
 ob_start();
 require('top.php');
-if(isset($_GET['id'])){
-	$product_id=mysqli_real_escape_string($con,$_GET['id']);
-	if($product_id>0){
-		$get_product=get_product($con,'','',$product_id);
-	}else{
-		?>
-		<script>
-		window.location.href='index.php';
-		</script>
-		<?php
-	}
-	
-	$resMultipleImages=mysqli_query($con,"select product_images from product_images where product_id='$product_id'");
-	$multipleImages=[];
-	if(mysqli_num_rows($resMultipleImages)>0){
-		while($rowMultipleImages=mysqli_fetch_assoc($resMultipleImages)){
-			$multipleImages[]=$rowMultipleImages['product_images'];
-		}
-	}
-}else{
-	?>
-	<script>
-	window.location.href='index.php';
-	</script>
-	<?php
+if (isset($_GET['id'])) {
+  $product_id = mysqli_real_escape_string($con, $_GET['id']);
+  if ($product_id > 0) {
+    $get_product = get_product($con, '', '', $product_id);
+  } else {
+?>
+    <script>
+      window.location.href = 'index.php';
+    </script>
+  <?php
+  }
+
+  $resMultipleImages = mysqli_query($con, "select product_images from product_images where product_id='$product_id'");
+  $multipleImages = [];
+  if (mysqli_num_rows($resMultipleImages) > 0) {
+    while ($rowMultipleImages = mysqli_fetch_assoc($resMultipleImages)) {
+      $multipleImages[] = $rowMultipleImages['product_images'];
+    }
+  }
+} else {
+  ?>
+  <script>
+    window.location.href = 'index.php';
+  </script>
+<?php
 }
 ?>
 
@@ -129,7 +129,7 @@ if(isset($_GET['id'])){
       echo '<div class="carousel-item active">
               <img class="d-block w-100" src="' . PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] . '" alt="Product Image">
             </div>';
-      
+
       // Output the carousel images from $multipleImages
       foreach ($multipleImages as $key => $image) {
         echo '<div class="carousel-item">
@@ -148,14 +148,14 @@ if(isset($_GET['id'])){
     </a>
   </div>
 
-  <?php if(isset($multipleImages[0])){?>
-  <div>
-  <?php
-											foreach($multipleImages as $list){
-			echo "<img width='50px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list."' onclick=showMultipleImage('".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list."')>";
-											}
-											?>
-  </div>
+  <?php if (isset($multipleImages[0])) { ?>
+    <div>
+      <?php
+      foreach ($multipleImages as $list) {
+        echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
+      }
+      ?>
+    </div>
   <?php } ?>
 
   <!-- Rest of your product details and controls -->
