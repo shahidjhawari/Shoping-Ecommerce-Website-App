@@ -1,6 +1,13 @@
 <?php
 require('top.inc.php');
 
+$condition='';
+$condition1='';
+if($_SESSION['ADMIN_ROLE']==1){
+	$condition=" and product.added_by='".$_SESSION['ADMIN_ID']."'";
+	$condition1=" and added_by='".$_SESSION['ADMIN_ID']."'";
+}
+
 if(isset($_GET['type']) && $_GET['type']!=''){
 	$type=get_safe_value($con,$_GET['type']);
 	if($type=='status'){
@@ -11,18 +18,18 @@ if(isset($_GET['type']) && $_GET['type']!=''){
 		}else{
 			$status='0';
 		}
-		$update_status_sql="update product set status='$status' where id='$id'";
+		$update_status_sql="update product set status='$status' $condition1 where id='$id'";
 		mysqli_query($con,$update_status_sql);
 	}
 	
 	if($type=='delete'){
 		$id=get_safe_value($con,$_GET['id']);
-		$delete_sql="delete from product where id='$id'";
+		$delete_sql="delete from product where id='$id' $condition1";
 		mysqli_query($con,$delete_sql);
 	}
 }
 
-$sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id order by product.id desc";
+$sql="select product.*,categories.categories from product,categories where product.categories_id=categories.id $condition order by product.id desc";
 $res=mysqli_query($con,$sql);
 ?>
 <div class="content pb-0">
@@ -62,7 +69,15 @@ $res=mysqli_query($con,$sql);
 							   <td><img src="<?php echo PRODUCT_IMAGE_SITE_PATH.$row['image']?>"/></td>
 							   <td><?php echo $row['mrp']?></td>
 							   <td><?php echo $row['price']?></td>
-							   <td><?php echo $row['qty']?></td>
+							   <td><?php echo $row['qty']?><br/>
+							   <?php
+							   $productSoldQtyByProductId=productSoldQtyByProductId($con,$row['id']);
+							   $pneding_qty=$row['qty']-$productSoldQtyByProductId;
+							   
+							   ?>
+							   Pending Qty <?php echo $pneding_qty?>
+							   
+							   </td>
 							   <td>
 								<?php
 								if($row['status']==1){
