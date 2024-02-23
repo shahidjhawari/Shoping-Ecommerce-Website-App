@@ -105,6 +105,11 @@ if(isset($_GET['id'])){
 
   <div class="product-container">
     <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" alt="full-image" class="product-image">
+
+    <div id="multi-img-box">
+      <img src="images/laptop-img.png" alt="">
+    </div>
+
     <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
     <div class="product-short-description">
       <?php echo $get_product['0']['description'] ?>
