@@ -40,20 +40,21 @@ if (isset($_GET['sort'])) {
    }
 }
 
-if ($cat_id > 0 && $sub_categories != '') {
+if($cat_id > 0 && $sub_categories != '') {
    // Fetch products based on both category and subcategory
-   $get_product = get_product($con, '', $cat_id, $sub_categories, '', $sort_order);
+   $get_product = get_product($con, '', $cat_id, '', '', $sort_order, '', $sub_categories);
 } elseif ($cat_id > 0) {
    // Fetch products only based on category
    $get_product = get_product($con, '', $cat_id, '', '', $sort_order);
 } else {
-?>
+   ?>
    <script>
-      window.location.href = 'index.php';
+   window.location.href='index.php';
    </script>
-<?php
+   <?php
    exit; // Added to stop further execution if category or subcategory is not valid
 }
+
 ?>
 
 <style>
