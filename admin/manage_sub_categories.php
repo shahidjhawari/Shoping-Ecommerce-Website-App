@@ -1,6 +1,5 @@
 <?php
 require('top.inc.php');
-isAdmin();
 $categories='';
 $msg='';
 $sub_categories='';

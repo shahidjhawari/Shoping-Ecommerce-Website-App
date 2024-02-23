@@ -3360,11 +3360,3 @@ footer.site-footer .footer-inner a {
 #address_details{
 	margin:10px;
 }
-
-.shiprocket_error{
-	padding: 32px;
-    padding-bottom: 0px;
-    font-size: 20px;
-    color: red;
-    font-weight: bold;
-}
