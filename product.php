@@ -148,6 +148,16 @@ if(isset($_GET['id'])){
     </a>
   </div>
 
+  <?php if(isset($multipleImages[0])){?>
+  <div>
+  <?php
+											foreach($multipleImages as $list){
+			echo "<img width='50px' src='".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list."' onclick=showMultipleImage('".PRODUCT_MULTIPLE_IMAGE_SITE_PATH.$list."')>";
+											}
+											?>
+  </div>
+  <?php } ?>
+
   <!-- Rest of your product details and controls -->
   <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
   <div class="product-short-description">
