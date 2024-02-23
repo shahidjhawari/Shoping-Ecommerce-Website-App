@@ -89,6 +89,7 @@ if (isset($_GET['id'])) {
     cursor: pointer;
     margin-top: 20px;
     margin-right: 100px;
+    margin-bottom: 30px;
   }
 
   .buy-now-btn {
@@ -98,6 +99,7 @@ if (isset($_GET['id'])) {
     padding: 10px 20px;
     cursor: pointer;
     margin-top: 20px;
+    margin-bottom: 30px;
   }
 
   .product-short-description {
@@ -152,7 +154,7 @@ if (isset($_GET['id'])) {
     <div>
       <?php
       foreach ($multipleImages as $list) {
-        echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
+        echo "<img id='below-img' width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
       }
       ?>
     </div>
