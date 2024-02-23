@@ -104,9 +104,6 @@ if (mysqli_num_rows($sub_cat_res) > 0) {
          echo '<h3 class="sub-cate-heading"><a href="categories.php?id=' . $cat_id . '&sub_categories=' . $sub_cat_rows['id'] . '">' . $sub_cat_rows['sub_categories'] . '</a></h3>';
       }
       ?>
-      <h3 class="sub-cate-heading">fds</h3>
-      <h3 class="sub-cate-heading">fds</h3>
-      <h3 class="sub-cate-heading">fds</h3>
    </div>
 <?php } ?>
 
