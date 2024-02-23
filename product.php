@@ -113,7 +113,7 @@ if(isset($_GET['id'])){
 </style>
 
 <div class="container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
     <ol class="carousel-indicators">
       <?php
       // Output the carousel indicators
