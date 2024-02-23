@@ -19,21 +19,21 @@ function get_safe_value($con,$str){
 
 
 
-function get_product($con, $limit='',$cat_id='',$sub_categories='',$search_str='',$sort_order='',$product_id='',$is_best_seller=''){
+function get_product($con,$limit='',$cat_id='',$sub_categories='',$product_id='',$search_str='',$is_best_seller='',$sort_order=''){
     $sql="select product.*,categories.categories from product,categories where product.status=1 ";
     if($cat_id!=''){
-        $sql.=" and product.categories_id=$cat_id ";
-    }
+		$sql.=" and product.categories_id=$cat_id ";
+	}
     if($sub_categories!=''){
         $sql.=" and product.sub_categories_id=$sub_categories ";
     }
+    if($product_id!=''){
+		$sql.=" and product.id=$product_id ";
+	}
     if($search_str!=''){
         $sql.=" and (product.name like '%$search_str%' or product.description like '%$search_str%' or product.meta_title like '%$search_str%' or product.meta_description like '%$search_str%' or product.meta_keyword like '%$search_str%')";
     }
-    if($product_id!=''){
-        $sql.=" and product.id=$product_id ";
-    }
-	if($is_best_seller!=''){
+    if($is_best_seller!=''){
 		$sql.=" and product.best_seller=1 ";
 	}
     $sql.=" and product.categories_id=categories.id ";
@@ -45,10 +45,12 @@ function get_product($con, $limit='',$cat_id='',$sub_categories='',$search_str='
     $res=mysqli_query($con,$sql);
     $data=array();
     while($row=mysqli_fetch_assoc($res)){
-        $data[]=$row;
-    }
+		$data[]=$row;
+	}
     return $data;
 }
+
+
 
 
 function wishlist_add($con,$uid,$pid){
