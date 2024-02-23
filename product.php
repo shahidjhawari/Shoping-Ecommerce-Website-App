@@ -1,4 +1,5 @@
 <?php 
+ob_start();
 require('top.php');
 if(isset($_GET['id'])){
 	$product_id=mysqli_real_escape_string($con,$_GET['id']);
@@ -11,6 +12,14 @@ if(isset($_GET['id'])){
 		</script>
 		<?php
 	}
+	
+	$resMultipleImages=mysqli_query($con,"select product_images from product_images where product_id='$product_id'");
+	$multipleImages=[];
+	if(mysqli_num_rows($resMultipleImages)>0){
+		while($rowMultipleImages=mysqli_fetch_assoc($resMultipleImages)){
+			$multipleImages[]=$rowMultipleImages['product_images'];
+		}
+	}
 }else{
 	?>
 	<script>
@@ -19,6 +28,8 @@ if(isset($_GET['id'])){
 	<?php
 }
 ?>
+
+
 
   <style>
     .product-container {
