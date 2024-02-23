@@ -119,7 +119,7 @@ if(isset($_GET['id'])){
     <div id="multi-img-box">
       <?php
       foreach ($multipleImages as $list) {
-        echo "<img src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
+        echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
       }
       ?>
       <img src="images/laptop-img.png" alt="" width="50px">
