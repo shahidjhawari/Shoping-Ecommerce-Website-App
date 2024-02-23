@@ -1004,3 +1004,6 @@ input.mail_bt::placeholder {
     padding: 10px;
   }
   
+#multi-image-box {
+    overflow: auto;
+}  
