@@ -22,7 +22,7 @@
 <!-- copyright section start -->
 <div class="copyright_section">
    <div class="container">
-      <p class="copyright_text">© 2020 All Rights Reserved. Design by <a href="https://html.design">NAWAB Web Developer</a></p>
+      <p class="copyright_text">© 2020 All Rights Reserved. Develop by <a href="https://html.design">Mahar Shahid Iqbal Jhawari (NAWAB ACADEMY)</a></p>
    </div>
 </div>
 <!-- copyright section end -->
