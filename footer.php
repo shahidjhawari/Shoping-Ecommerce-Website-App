@@ -15,7 +15,7 @@
             <li><a href="#">Customer Service</a></li>
          </ul>
       </div>
-      <div class="location_main">Help Line Number : <a href="#">+92 300 9712159</a></div>
+      <div class="location_main">Help Line Number : <a href="#">+92 3119712159</a></div>
    </div>
 </div>
 <!-- footer section end -->
