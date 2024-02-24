@@ -192,6 +192,11 @@ if (isset($_POST['submit'])) {
 				<h6>Total :<?php echo $cart_total ?></h6>
 			</div>
 
+			<div class="container">
+				<label for="inputName">Coupon Code</label>
+				<input type="number" class="form-control" placeholder="Coupon Code">
+			</div>
+
 			<div class="container mt-5">
 				<h2>Shipping Address</h2>
 				<form method="post">
