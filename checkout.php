@@ -33,85 +33,91 @@ if (isset($_POST['submit'])) {
 	$txnid = substr(hash('sha256', mt_rand() . microtime()), 0, 20);
 
 
-	mysqli_query($con, "insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid')");
-
-	$order_id = mysqli_insert_id($con);
-
-	foreach ($_SESSION['cart'] as $key => $val) {
-		$productArr = get_product($con, '', '', $key);
-		$price = $productArr[0]['price'];
-		$qty = $val['qty'];
-
-		mysqli_query($con, "insert into `order_detail`(order_id,product_id,qty,price) values('$order_id','$key','$qty','$price')");
+	if(isset($_SESSION['COUPON_ID'])){
+		$coupon_id=$_SESSION['COUPON_ID'];
+		$coupon_code=$_SESSION['COUPON_CODE'];
+		$coupon_value=$_SESSION['COUPON_VALUE'];
+		$total_price=$total_price-$coupon_value;
+		unset($_SESSION['COUPON_ID']);
+		unset($_SESSION['COUPON_CODE']);
+		unset($_SESSION['COUPON_VALUE']);
+	}else{
+		$coupon_id='';
+		$coupon_code='';
+		$coupon_value='';	
+	}	
+	
+	mysqli_query($con,"insert into `order`(user_id,address,city,pincode,payment_type,payment_status,order_status,added_on,total_price,txnid,coupon_id,coupon_code,coupon_value) values('$user_id','$address','$city','$pincode','$payment_type','$payment_status','$order_status','$added_on','$total_price','$txnid','$coupon_id','$coupon_code','$coupon_value')");
+	
+	$order_id=mysqli_insert_id($con);
+	
+	foreach($_SESSION['cart'] as $key=>$val){
+		$productArr=get_product($con,'','',$key);
+		$price=$productArr[0]['price'];
+		$qty=$val['qty'];
+		
+		mysqli_query($con,"insert into `order_detail`(order_id,product_id,qty,price) values('$order_id','$key','$qty','$price')");
 	}
 
-	unset($_SESSION['cart']);
-
-	if ($payment_type == 'payu') {
-		$MERCHANT_KEY = "gtKFFx";
-		$SALT = "eCwWELxi";
-		$hash_string = '';
-		//$PAYU_BASE_URL = "https://secure.payu.in";
-		$PAYU_BASE_URL = "https://test.payu.in";
-		$action = '';
-		$posted = array();
-		if (!empty($_POST)) {
-			foreach ($_POST as $key => $value) {
-				$posted[$key] = $value;
-			}
-		}
-
-		$userArr = mysqli_fetch_assoc(mysqli_query($con, "select * from users where id='$user_id'"));
-
-		$formError = 0;
-		$posted['txnid'] = $txnid;
-		$posted['amount'] = $total_price;
-		$posted['firstname'] = $userArr['name'];
-		$posted['email'] = $userArr['email'];
-		$posted['phone'] = $userArr['mobile'];
-		$posted['productinfo'] = "productinfo";
-		$posted['key'] = $MERCHANT_KEY;
-		$hash = '';
-		$hashSequence = "key|txnid|amount|productinfo|firstname|email|udf1|udf2|udf3|udf4|udf5|udf6|udf7|udf8|udf9|udf10";
-		if (empty($posted['hash']) && sizeof($posted) > 0) {
-			if (
-				empty($posted['key'])
-				|| empty($posted['txnid'])
-				|| empty($posted['amount'])
-				|| empty($posted['firstname'])
-				|| empty($posted['email'])
-				|| empty($posted['phone'])
-				|| empty($posted['productinfo'])
-
-			) {
-				$formError = 1;
-			} else {
-				$hashVarsSeq = explode('|', $hashSequence);
-				foreach ($hashVarsSeq as $hash_var) {
-					$hash_string .= isset($posted[$hash_var]) ? $posted[$hash_var] : '';
-					$hash_string .= '|';
+	
+	if($payment_type=='instamojo'){
+		
+		$userArr=mysqli_fetch_assoc(mysqli_query($con,"select * from users where id='$user_id'"));
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL, 'https://test.instamojo.com/api/1.1/payment-requests/');
+		curl_setopt($ch, CURLOPT_HEADER, FALSE);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, TRUE);
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, TRUE);
+		curl_setopt($ch, CURLOPT_HTTPHEADER,
+			array("X-Api-Key:test_a5ee4680df615d01eb8396e1da4","X-Auth-Token:test_939292b985fc3339fc5fb21521d")
+		);
+		
+		$payload = Array(
+			'purpose' => 'Buy Product',
+			'amount' => $total_price,
+			'phone' => $userArr['mobile'],
+			'buyer_name' => $userArr['name'],
+			'redirect_url' => 'http://127.0.0.1/php/ecom/payment_complete.php',
+			'send_email' => false,
+			'send_sms' => false,
+			'email' => $userArr['email'],
+			'allow_repeated_payments' => false
+		);
+		curl_setopt($ch, CURLOPT_POST, true);
+		curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($payload));
+		$response = curl_exec($ch);
+		curl_close($ch); 
+		$response=json_decode($response);
+		if(isset($response->payment_request->id)){
+			//unset($_SESSION['cart']);
+			$_SESSION['TID']=$response->payment_request->id;
+			mysqli_query($con,"update `order` set txnid='".$response->payment_request->id."' where id='".$order_id."'");
+			?>
+			<script>
+			window.location.href='<?php echo $response->payment_request->longurl?>';
+			</script>
+			<?php
+		}else{
+			if(isset($response->message)){
+				$errMsg.="<div class='instamojo_error'>";
+				foreach($response->message as $key=>$val){
+					$errMsg.=strtoupper($key).' : '.$val[0].'<br/>';				
 				}
-				$hash_string .= $SALT;
-				$hash = strtolower(hash('sha512', $hash_string));
-				$action = $PAYU_BASE_URL . '/_payment';
+				$errMsg.="</div>";
+			}else{
+				echo "Something went wrong";
 			}
-		} elseif (!empty($posted['hash'])) {
-			$hash = $posted['hash'];
-			$action = $PAYU_BASE_URL . '/_payment';
 		}
-
-
-		$formHtml = '<form method="post" name="payuForm" id="payuForm" action="' . $action . '"><input type="hidden" name="key" value="' . $MERCHANT_KEY . '" /><input type="hidden" name="hash" value="' . $hash . '"/><input type="hidden" name="txnid" value="' . $posted['txnid'] . '" /><input name="amount" type="hidden" value="' . $posted['amount'] . '" /><input type="hidden" name="firstname" id="firstname" value="' . $posted['firstname'] . '" /><input type="hidden" name="email" id="email" value="' . $posted['email'] . '" /><input type="hidden" name="phone" value="' . $posted['phone'] . '" /><textarea name="productinfo" style="display:none;">' . $posted['productinfo'] . '</textarea><input type="hidden" name="surl" value="' . SITE_PATH . 'payment_complete.php" /><input type="hidden" name="furl" value="' . SITE_PATH . 'payment_fail.php"/><input type="submit" style="display:none;"/></form>';
-		echo $formHtml;
-		echo '<script>document.getElementById("payuForm").submit();</script>';
-	} else {
-
-	?>
+	}else{	
+		//sentInvoice($con,$order_id);
+		?>
 		<script>
-			window.location.href = 'thank_you.php';
+			window.location.href='thank_you.php';
 		</script>
-<?php
-	}
+		<?php
+	}	
+	
 }
 ?>
 <!DOCTYPE html>
@@ -190,11 +196,13 @@ if (isset($_POST['submit'])) {
 			<!-- Total Section -->
 			<div class="text-right">
 				<h6>Total :<?php echo $cart_total ?></h6>
+				<div id="order_total_price"></div>
 			</div>
 
 			<div class="container">
 				<label for="inputName">Coupon Code</label>
-				<input type="number" class="form-control" placeholder="Coupon Code">
+				<input type="text" id="coupon_str" name="submit" class="form-control" placeholder="Coupon Code">
+				<button class="btn btn-warning mt-2" onclick="set_coupon()">Add</button>
 			</div>
 
 			<div class="container mt-5">
@@ -214,7 +222,7 @@ if (isset($_POST['submit'])) {
 						<label for="inputAddress">Address</label>
 						<input type="text" class="form-control" id="inputAddress" placeholder="New Lari Adda, Jhawarian" required="" name="pincode">
 					</div>
-					<div class="form-check <?php echo $accordion_class ?>">
+					<div class="form-check mt-3 <?php echo $accordion_class ?>">
 						<h4>Payment Method</h4>
 						<input class="form-check-input" type="radio" name="payment_type" id="exampleRadios1" value="Cash On Delivery" checked>
 						<label class="form-check-label" for="exampleRadios1">Cash On Delivery</label>
@@ -244,8 +252,37 @@ if (isset($_POST['submit'])) {
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.min.js"></script>
-</body>
 
-</html>
-
-<?php include('footer.php') ?>
+	<script>
+			function set_coupon(){
+				var coupon_str=jQuery('#coupon_str').val();
+				if(coupon_str!=''){
+					jQuery('#coupon_result').html('');
+					jQuery.ajax({
+						url:'set_coupon.php',
+						type:'post',
+						data:'coupon_str='+coupon_str,
+						success:function(result){
+							var data=jQuery.parseJSON(result);
+							if(data.is_error=='yes'){
+								jQuery('#coupon_box').hide();
+								jQuery('#coupon_result').html(data.dd);
+								jQuery('#order_total_price').html(data.result);
+							}
+							if(data.is_error=='no'){
+								jQuery('#coupon_box').show();
+								jQuery('#coupon_price').html(data.dd);
+								jQuery('#order_total_price').html("Total : " + data.result);
+							}
+						}
+					});
+				}
+			}
+		</script>		
+<?php 
+if(isset($_SESSION['COUPON_ID'])){
+	unset($_SESSION['COUPON_ID']);
+	unset($_SESSION['COUPON_CODE']);
+	unset($_SESSION['COUPON_VALUE']);
+}
+ include('footer.php') ?>
