@@ -211,7 +211,7 @@ if (isset($_POST['submit'])) {
 					<div class="form-row">
 						<div class="form-group col-md-6">
 							<label for="inputName">Full Name</label>
-							<input type="text" class="form-control" id="inputName" name="address" placeholder="John Doe" required="">
+							<input type="text" class="form-control" id="inputName" name="address" placeholder="Enter Name" required="">
 						</div>
 						<div class="form-group col-md-6">
 							<label for="inputPhone">Phone Number</label>
