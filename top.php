@@ -53,6 +53,11 @@ if($mypage=='product.php'){
    <!-- mobile metas -->
    <meta name="viewport" content="width=device-width, initial-scale=1">
    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+
+   <meta property="og:title" content="<?php echo $meta_title?>"/>
+	<meta property="og:image" content="<?php echo $meta_image?>"/>
+	<meta property="og:url" content="<?php echo $meta_url?>"/>
+	<meta property="og:site_name" content="<?php echo SITE_PATH?>"/>
    <!-- site metas -->
    <title><?php echo $meta_title?></title>
    <meta name="keywords" content="<?php echo $meta_keyword?>">
