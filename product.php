@@ -115,52 +115,7 @@ if (isset($_GET['id'])) {
 </style>
 
 <div class="container">
-  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" data-interval="3000">
-    <ol class="carousel-indicators">
-      <?php
-      // Output the carousel indicators
-      foreach ($multipleImages as $key => $image) {
-        $active = ($key == 0) ? 'active' : '';
-        echo '<li data-target="#carouselExampleIndicators" data-slide-to="' . $key . '" class="' . $active . '"></li>';
-      }
-      ?>
-    </ol>
-    <div class="carousel-inner">
-      <?php
-      // Output the product image with the class "product-image" as the first item in the carousel
-      echo '<div class="carousel-item active">
-              <img class="d-block w-100" src="' . PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] . '" alt="Product Image">
-            </div>';
-
-      // Output the carousel images from $multipleImages
-      foreach ($multipleImages as $key => $image) {
-        echo '<div class="carousel-item">
-                <img class="d-block w-100" src="' . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image . '" alt="Slide ' . $key . '">
-              </div>';
-      }
-      ?>
-    </div>
-    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="sr-only">Next</span>
-    </a>
-  </div>
-
-  <?php if (isset($multipleImages[0])) { ?>
-    <div>
-      <?php
-      foreach ($multipleImages as $list) {
-        echo "<img id='below-img' width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick=showMultipleImage('" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "')>";
-      }
-      ?>
-    </div>
-  <?php } ?>
-
-  <!-- Rest of your product details and controls -->
+  <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product['0']['image'] ?>" alt="full-image" class="product-image">
   <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
   <div class="product-short-description">
     <?php echo $get_product['0']['description'] ?>
@@ -173,9 +128,9 @@ if (isset($_GET['id'])) {
   <div class="product-long-description"><?php echo $get_product['0']['description'] ?></div>
 
   <div id="social_share_box">
-    <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px"/></a>
-    <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px"/></a>
-    <a href="https://whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px"/></a>
+    <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px" /></a>
+    <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px" /></a>
+    <a href="https://whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px" /></a>
   </div>
 
   <div class="quantity-container">
