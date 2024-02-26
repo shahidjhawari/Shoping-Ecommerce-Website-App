@@ -48,7 +48,7 @@
                <small class="fa fa-star text-warning mr-1"></small>
                <small class="fa fa-star text-warning mr-1"></small>
                <div>
-            <button class="btn btn-danger btn-add-to-cart"><a href="" onclick="wishlist_manage('<?php echo $list['id']?>','add')">Add item +</a></button>
+            <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id']?>','add')">Add item +</a></button>
          </div>
          </div>
       <?php } ?>
