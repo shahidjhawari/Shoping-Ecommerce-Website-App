@@ -56,8 +56,8 @@ if ($mypage == 'contact.php') {
    <!-- mobile metas -->
    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
    <!-- site metas -->
-   <title>Eflyer</title>
-   <meta name="keywords" content="">
+   <title>Alnafeh Mobile Shop</title>
+   <meta name="keywords" content="alnafeh mobile shop, alnafeh, alnafeh mobile">
    <meta name="description" content="">
    <meta name="author" content="">
    <!-- bootstrap css -->
