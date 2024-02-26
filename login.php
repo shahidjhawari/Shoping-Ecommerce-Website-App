@@ -42,9 +42,9 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
                         <span class="field_error" id="name_error"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" required>
-                        <small>Please enter valid email</small><br>
+                        <label for="email">Email or Phone Number</label>
+                        <input type="email" class="form-control" name="email" id="email" placeholder="Email or Phone Number">
+                        <small>Email or Phone Number</small><br>
                         <span class="field_error" id="email_error"></span>
 
                         <!-- <button type="button" class="btn btn-primary" style="width: 100px; margin-top:15px;" onclick="email_sent_otp()">Send OTP</button> -->
