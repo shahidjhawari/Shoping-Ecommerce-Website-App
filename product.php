@@ -172,6 +172,12 @@ if (isset($_GET['id'])) {
   </div>
   <div class="product-long-description"><?php echo $get_product['0']['description'] ?></div>
 
+  <div id="social_share_box">
+    <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px"/></a>
+    <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px"/></a>
+    <a href="https://api.whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px"/></a>
+  </div>
+
   <div class="quantity-container">
     <div class="quantity-label">Quantity:</div>
     <input type="number" min="1" max="5" class="quantity-button" id="qty" value="1"></input>

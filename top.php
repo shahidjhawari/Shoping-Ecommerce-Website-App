@@ -27,15 +27,19 @@ $script_name=$_SERVER['SCRIPT_NAME'];
 $script_name_arr=explode('/',$script_name);
 $mypage=$script_name_arr[count($script_name_arr)-1];
 
-$meta_title="My Ecom Website";
-$meta_desc="My Ecom Website";
-$meta_keyword="My Ecom Website";
+$meta_title="Alnafeh Mobile Shop";
+$meta_desc="Jhawarian No 1 Mobile Shop";
+$meta_keyword="Alnafeh Mobile Shop";
+$meta_url=SITE_PATH;
+$meta_image="";
 if($mypage=='product.php'){
 	$product_id=get_safe_value($con,$_GET['id']);
 	$product_meta=mysqli_fetch_assoc(mysqli_query($con,"select * from product where id='$product_id'"));
 	$meta_title=$product_meta['meta_title'];
 	$meta_desc=$product_meta['meta_desc'];
 	$meta_keyword=$product_meta['meta_keyword'];
+	$meta_url=SITE_PATH."product.php?id=".$product_id;
+	$meta_image=PRODUCT_IMAGE_SITE_PATH.$product_meta['image'];
 }if($mypage=='contact.php'){
 	$meta_title='Contact Us';
 }
