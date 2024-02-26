@@ -62,7 +62,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active">
                 <div class="container">
-                    <h1 class="fashion_taital">Best Seller</h1>
+                    <h1 class="fashion_taital" style="background-color: #0D1282; color: #fff;">New Arrivals</h1>
                     <div class="fashion_section_2">
                         <div class="row">
                             <?php
@@ -87,7 +87,7 @@
             </div>
             <div class="carousel-item">
                 <div class="container">
-                    <h1 class="fashion_taital">New Arrival</h1>
+                    <h1 class="fashion_taital" style="background-color: #D71313; color: #fff;">HOT</h1>
                     <div class="fashion_section_2">
                         <div class="row">
                             <div class="col-lg-4 col-sm-4">
@@ -129,7 +129,7 @@
             </div>
             <div class="carousel-item">
                 <div class="container">
-                    <h1 class="fashion_taital">Hot</h1>
+                    <h1 class="fashion_taital" style="background-color: #1A5D1A; color: #fff;">Trending</h1>
                     <div class="fashion_section_2">
                         <div class="row">
                             <div class="col-lg-4 col-sm-4">
