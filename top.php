@@ -150,12 +150,23 @@ if ($mypage == 'contact.php') {
                </div>
                <div class="header_box">
                   <div class="lang_box ">
-                     <a href="#" title="Language" class="nav-link" data-toggle="dropdown" aria-expanded="true">
-                        <img src="images/flag-uk.png" alt="flag" class="mr-2 " title="United Kingdom"> English <i class="fa fa-angle-down ml-2" aria-hidden="true"></i>
-                     </a>
+                     <?php if (isset($_SESSION['USER_LOGIN'])) { ?>
+                        <a href="home.php" type="button" class="btn btn-outline-light " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><?php echo $_SESSION['USER_NAME'] ?></a>
+                     <?php
+                     } else {
+                        echo '<a href="login.php" type="button" class="btn btn-outline-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Login/Signup</a>';
+                     } ?>
                   </div>
                   <div class="login_menu">
                      <ul>
+                        <li><a href="checkout.php">
+                              <span class="padding_3"></span>
+                              <i class="fa fa-shopping-basket" aria-hidden="true"></i></a>
+                        </li>
+                        <li><a href="my_order.php">
+                              <span class="padding_3"></span>
+                              <i class="fa fa-credit-card" aria-hidden="true"></i></a>
+                        </li>
                         <li><a href="cart.php">
                               <span class="padding_3"><?php echo $totalProduct ?></span>
                               <i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
