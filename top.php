@@ -151,10 +151,10 @@ if ($mypage == 'contact.php') {
                <div class="header_box">
                   <div class="lang_box ">
                      <?php if (isset($_SESSION['USER_LOGIN'])) { ?>
-                        <a href="home.php" type="button" class="btn btn-outline-light " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"><?php echo $_SESSION['USER_NAME'] ?></a>
+                        <a href="home.php" type="button" class="btn btn-outline-light " style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color: black;"><?php echo $_SESSION['USER_NAME'] ?></a>
                      <?php
                      } else {
-                        echo '<a href="login.php" type="button" class="btn btn-outline-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">Login/Signup</a>';
+                        echo '<a href="login.php" type="button" class="btn btn-outline-light" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem; color: black;">Login/Signup</a>';
                      } ?>
                   </div>
                   <div class="login_menu">
