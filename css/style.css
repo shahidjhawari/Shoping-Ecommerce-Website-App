@@ -1005,3 +1005,14 @@ input.mail_bt::placeholder {
     padding: 10px;
   }
   
+
+.btn-add-to-cart {
+    width: 120px;
+    height: 40px;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.btn-add-to-cart a {
+    color: #fff;
+}
