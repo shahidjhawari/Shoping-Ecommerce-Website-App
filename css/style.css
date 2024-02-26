@@ -1016,3 +1016,33 @@ input.mail_bt::placeholder {
 .btn-add-to-cart a {
     color: #fff;
 }
+
+.box {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col.item-1 {
+    width: calc(33.33% - 20px); /* Adjust width as needed */
+    margin: 10px;
+    padding-bottom: 40px; /* Space for stars and button */
+    border: 1px solid #ccc;
+    position: relative;
+}
+
+.neeche-wala {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+.stars {
+    display: flex;
+    justify-content: center;
+}
+
+.add-to-cart {
+    text-align: center;
+}

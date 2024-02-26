@@ -4,6 +4,7 @@
    .item-1 {
       border: 1px solid orange;
       margin: 10px;
+      height: 300px;
       min-height: 100px;
       min-width: 150px;
       max-width: 150px;
@@ -15,7 +16,6 @@
 
    h6 {
       text-align: left;
-      margin-top: 5px;
    }
 
    h3 {
@@ -30,7 +30,6 @@
 </style>
 
 <!-- latest product section start -->
-
 <div class="container text-center">
    <div class="row box">
       <?php
@@ -39,21 +38,27 @@
       ?>
          <div class="col item-1">
             <a href="product.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="100%" alt=""></a>
-            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo $list['name'] ?></a></h6>
+            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 30 ? substr($list['name'], 0, 30) . '...' : $list['name'] ?></a></h6>
             <h3>Rs.<?php echo $list['price'] ?></h3>
             <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
-            <small class="fa fa-star text-warning mr-1"></small>
-            <small class="fa fa-star text-warning mr-1"></small>
-            <small class="fa fa-star text-warning mr-1"></small>
-            <small class="fa fa-star text-warning mr-1"></small>
-            <small class="fa fa-star text-warning mr-1"></small>
-            <div>
-               <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
+            <div class="neeche-wala">
+                <div class="stars">
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                </div>
+                <div class="add-to-cart">
+                    <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
+                </div>
             </div>
          </div>
       <?php } ?>
    </div>
 </div>
+
+
 <!-- latest product section end -->
 
 <!-- electronic section start -->
