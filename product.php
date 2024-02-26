@@ -175,7 +175,7 @@ if (isset($_GET['id'])) {
   <div id="social_share_box">
     <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px"/></a>
     <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px"/></a>
-    <a href="https://api.whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px"/></a>
+    <a href="https://whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px"/></a>
   </div>
 
   <div class="quantity-container">
