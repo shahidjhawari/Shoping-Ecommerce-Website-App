@@ -58,144 +58,128 @@
 
 <!-- electronic section start -->
 <div class="fashion_section">
-         <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
-            <div class="carousel-inner">
-               <div class="carousel-item active">
-                  <div class="container">
-                     <h1 class="fashion_taital">Best Seller</h1>
-                     <div class="fashion_section_2">
+    <div id="electronic_main_slider" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <div class="container">
+                    <h1 class="fashion_taital">Best Seller</h1>
+                    <div class="fashion_section_2">
                         <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Laptop</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/laptop-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Mobile</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/mobile-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Computers</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/computer-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
+                            <?php
+                            $get_product = get_product($con, 3);
+                            foreach ($get_product as $list) {
+                            ?>
+                                <div class="col-lg-4 col-sm-4">
+                                    <div class="box_main">
+                                        <h4 class="shirt_text"><?php echo $list['name']; ?></h4>
+                                        <p class="price_text">Start Price <span style="color: #262626;">$ <?php echo $list['price']; ?></span></p>
+                                        <div class="electronic_img"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image']; ?>" alt="product images"></div>
+                                        <div class="btn_main">
+                                            <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                            <div class="seemore_bt"><a href="#">See More</a></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php } ?>
                         </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">New Arrival</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Laptop</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/laptop-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Mobile</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/mobile-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Computers</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/computer-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
-               <div class="carousel-item">
-                  <div class="container">
-                     <h1 class="fashion_taital">Hot</h1>
-                     <div class="fashion_section_2">
-                        <div class="row">
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Laptop</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/laptop-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Mobile</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/mobile-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                           <div class="col-lg-4 col-sm-4">
-                              <div class="box_main">
-                                 <h4 class="shirt_text">Computers</h4>
-                                 <p class="price_text">Start Price  <span style="color: #262626;">$ 100</span></p>
-                                 <div class="electronic_img"><img src="images/computer-img.png"></div>
-                                 <div class="btn_main">
-                                    <div class="buy_bt"><a href="#">Buy Now</a></div>
-                                    <div class="seemore_bt"><a href="#">See More</a></div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                  </div>
-               </div>
+                    </div>
+                </div>
             </div>
-            <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
+            <div class="carousel-item">
+                <div class="container">
+                    <h1 class="fashion_taital">New Arrival</h1>
+                    <div class="fashion_section_2">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Laptop</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/laptop-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Mobile</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/mobile-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Computers</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/computer-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="container">
+                    <h1 class="fashion_taital">Hot</h1>
+                    <div class="fashion_section_2">
+                        <div class="row">
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Laptop</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/laptop-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Mobile</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/mobile-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-sm-4">
+                                <div class="box_main">
+                                    <h4 class="shirt_text">Computers</h4>
+                                    <p class="price_text">Start Price <span style="color: #262626;">$ 100</span></p>
+                                    <div class="electronic_img"><img src="images/computer-img.png"></div>
+                                    <div class="btn_main">
+                                        <div class="buy_bt"><a href="#">Buy Now</a></div>
+                                        <div class="seemore_bt"><a href="#">See More</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#electronic_main_slider" role="button" data-slide="prev">
             <i class="fa fa-angle-left"></i>
-            </a>
-            <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
+        </a>
+        <a class="carousel-control-next" href="#electronic_main_slider" role="button" data-slide="next">
             <i class="fa fa-angle-right"></i>
-            </a>
-         </div>
-      </div>
-      <!-- electronic section end -->
+        </a>
+    </div>
+</div>
+<!-- electronic section end -->
+
 
 
 <?php require('footer.php') ?>
