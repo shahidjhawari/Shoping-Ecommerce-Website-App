@@ -4,7 +4,7 @@
    .item-1 {
       border: 1px solid orange;
       margin: 10px;
-      height: 300px;
+      height: 270px;
       min-height: 100px;
       min-width: 150px;
       max-width: 150px;
@@ -39,7 +39,7 @@
       ?>
          <div class="col item-1">
             <a href="product.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="80%" alt=""></a>
-            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 30 ? substr($list['name'], 0, 30) . '...' : $list['name'] ?></a></h6>
+            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 25 ? substr($list['name'], 0, 25) . '...' : $list['name'] ?></a></h6>
             <h3>Rs.<?php echo $list['price'] ?></h3>
             <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
             <div class="neeche-wala">

@@ -1020,7 +1020,6 @@ input.mail_bt::placeholder {
 .box {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
 }
 
 .col.item-1 {
