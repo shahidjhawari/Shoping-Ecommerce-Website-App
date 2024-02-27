@@ -4,7 +4,7 @@
    .item-1 {
       border: 1px solid orange;
       margin: 10px;
-      height: 270px;
+      height: 250px;
       min-height: 100px;
       min-width: 150px;
       max-width: 150px;
