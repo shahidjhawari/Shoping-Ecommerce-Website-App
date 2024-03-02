@@ -115,29 +115,30 @@ if (isset($_GET['id'])) {
 </style>
 
 <div class="container">
-<img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product[0]['image'] ?>" alt="full-image" class="product-image" id="mainProductImage">
+  <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product[0]['image'] ?>" alt="full-image" class="product-image" id="mainProductImage">
 
-<?php if (isset($multipleImages[0])) { ?>
-  <div id="multiple_images">
-    <?php
-    foreach ($multipleImages as $list) {
-      echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick='showMultipleImage(\"" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "\")'>";
+  <?php if (isset($multipleImages[0])) { ?>
+    <div id="multiple_images">
+      <?php
+      foreach ($multipleImages as $list) {
+        echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick='showMultipleImage(\"" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "\")'>";
+      }
+      ?>
+    </div>
+  <?php } ?>
+
+  <script>
+    function showMultipleImage(imagePath) {
+      document.getElementById('mainProductImage').src = imagePath;
     }
-    ?>
-  </div>
-<?php } ?>
-
-<script>
-  function showMultipleImage(imagePath) {
-    document.getElementById('mainProductImage').src = imagePath;
-  }
-</script>
+  </script>
 
 
 
   <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
   <div class="product-short-description">
-    <?php echo $get_product['0']['description'] ?>
+    <?php echo strlen($get_product['0']['description']) > 100 ? substr($get_product['0']['description'], 0, 100) . '...' : $get_product['0']['description']; ?>
+
   </div>
   <div class="product-price">Rs. <?php echo $get_product['0']['price'] ?></div>
   <div class="old-price">Rs. <?php echo $get_product['0']['mrp'] ?></div>
