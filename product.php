@@ -114,53 +114,58 @@ if (isset($_GET['id'])) {
   }
 </style>
 
-<div class="container">
-  <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $get_product[0]['image'] ?>" alt="full-image" class="product-image" id="mainProductImage">
+<<div class="container">
+  <?php foreach ($get_product as $product) { ?>
+    <div class="product-details">
+      <a href="product.php?id=<?php echo $product['id']; ?>">
+        <img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $product['image'] ?>" alt="full-image" class="product-image">
+      </a>
 
-  <?php if (isset($multipleImages[0])) { ?>
-    <div id="multiple_images">
       <?php
-      foreach ($multipleImages as $list) {
-        echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "' onclick='showMultipleImage(\"" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $list . "\")'>";
+      if (isset($multipleImages[$product['id']])) {
+        echo '<div class="multiple-images">';
+        foreach ($multipleImages[$product['id']] as $image) {
+          echo "<img width='50px' src='" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image . "' onclick='showMultipleImage(\"" . PRODUCT_MULTIPLE_IMAGE_SITE_PATH . $image . "\", " . $product['id'] . ")'>";
+        }
+        echo '</div>';
       }
       ?>
+
+      <div class="product-name"><?php echo $product['name'] ?></div>
+      <div class="product-short-description">
+        <?php echo strlen($product['description']) > 100 ? substr($product['description'], 0, 100) . '...' : $product['description']; ?>
+      </div>
+      <div class="product-price">Rs. <?php echo $product['price'] ?></div>
+      <div class="old-price">Rs. <?php echo $product['mrp'] ?></div>
+      <div class="product-categories">
+        <?php echo $product['categories'] ?>
+      </div>
+      <div class="product-long-description"><?php echo $product['description'] ?></div>
+
+      <div class="social-share-box">
+        <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px" /></a>
+        <a href="https://twitter.com/share?text=<?php echo $product['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px" /></a>
+        <a href="https://whatsapp.com/send?text=<?php echo $product['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px" /></a>
+      </div>
+
+      <div class="quantity-container">
+        <div class="quantity-label">Quantity:</div>
+        <input type="number" min="1" max="5" class="quantity-button" id="qty_<?php echo $product['id']; ?>" value="1"></input>
+      </div>
+
+      <a href="cart.php" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $product['id'] ?>','add')">Add to cart</a>
+      <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
     </div>
   <?php } ?>
-
-  <script>
-    function showMultipleImage(imagePath) {
-      document.getElementById('mainProductImage').src = imagePath;
-    }
-  </script>
-
-
-
-  <div class="product-name"><?php echo $get_product['0']['name'] ?></div>
-  <div class="product-short-description">
-    <?php echo strlen($get_product['0']['description']) > 100 ? substr($get_product['0']['description'], 0, 100) . '...' : $get_product['0']['description']; ?>
-
-  </div>
-  <div class="product-price">Rs. <?php echo $get_product['0']['price'] ?></div>
-  <div class="old-price">Rs. <?php echo $get_product['0']['mrp'] ?></div>
-  <div class="product-categories">
-    <?php echo $get_product['0']['categories'] ?>
-  </div>
-  <div class="product-long-description"><?php echo $get_product['0']['description'] ?></div>
-
-  <div id="social_share_box">
-    <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px" /></a>
-    <a href="https://twitter.com/share?text=<?php echo $get_product['0']['name'] ?>&url=<?php echo $meta_url ?>"><img src='images/twitter.png' width="50px" /></a>
-    <a href="https://whatsapp.com/send?text=<?php echo $get_product['0']['name'] ?> <?php echo $meta_url ?>"><img src='images/whatsapp.png' width="50px" /></a>
-  </div>
-
-  <div class="quantity-container">
-    <div class="quantity-label">Quantity:</div>
-    <input type="number" min="1" max="5" class="quantity-button" id="qty" value="1"></input>
-  </div>
-
-  <a href="cart.php" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
-  <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
 </div>
+
+<script>
+  function showMultipleImage(imagePath, productId) {
+    document.getElementById('mainProductImage_' + productId).src = imagePath;
+  }
+</script>
+
+
 
 
 
