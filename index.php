@@ -35,7 +35,7 @@
 <div class="container text-center">
    <div class="row box">
       <?php
-      $get_product = get_product($con, 16);
+      $get_product = get_product($con, 64);
       foreach ($get_product as $list) {
       ?>
          <div class="col item-1">
