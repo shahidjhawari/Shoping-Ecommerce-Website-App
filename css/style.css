@@ -1046,3 +1046,39 @@ input.mail_bt::placeholder {
     text-align: center;
     margin-top: 5px;
 }
+
+/* Bottom Navigation CSS Start */
+#bottom-nav-box {
+    display: none;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    top: 90vh;
+    left: 0;
+    background: rgb(43, 184, 11);
+}
+
+@media screen and (min-width: 200px) and (max-width: 574px){
+    #bottom-nav-box {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        width: 100%;
+        height: 50px;
+        position: fixed;
+        top: 93vh;
+        left: 0;
+        background: #FBA834;
+    }
+    .icon {
+        height: 100%;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      
+      .icon i {
+        font-size: 2em; /* Adjust the size of the icon as needed */
+      }
+}

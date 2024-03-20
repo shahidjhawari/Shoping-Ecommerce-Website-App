@@ -26,6 +26,24 @@
    </div>
 </div>
 <!-- copyright section end -->
+
+<!-- Bottom section start -->
+<div id="bottom-nav-box">
+  <a href="index.php" class="icon">
+    <i class="fas fa-home"></i>
+  </a>
+  <a href="cart.php" class="icon">
+    <i class="fas fa-shopping-cart"></i>
+  </a>
+  <a href="my_order.php" class="icon">
+    <i class="fas fa-clipboard-check"></i>
+  </a>
+  <a href="login.php" class="icon">
+    <i class="fas fa-sign-in-alt"></i>
+  </a>
+</div>
+<!-- Bottom section end-->
+
 <!-- Javascript files-->
 <script src="js/jquery.min.js"></script>
 <script src="js/popper.min.js"></script>
