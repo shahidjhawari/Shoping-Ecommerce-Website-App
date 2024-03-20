@@ -123,32 +123,25 @@ if ($mypage == 'contact.php') {
             <div class="containt_main">
                <div id="mySidenav" class="sidenav">
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  <?php
-                  foreach ($cat_arr as $list) {
-                  ?>
-                     <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
-                  <?php
-                  }
-                  ?>
+                  <a href="index.html">Home</a>
+                  <a href="fashion.html">Fashion</a>
+                  <a href="electronic.html">Electronic</a>
+                  <a href="jewellery.html">Jewellery</a>
                </div>
                <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
                <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <?php
-                     foreach ($cat_arr as $list) {
-                     ?>
-                        <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
-                     <?php
-                     }
-                     ?>
+                     <?php foreach ($cat_arr as $list) : ?>
+                        <a class="dropdown-item" href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a>
+                     <?php endforeach; ?>
                   </div>
                </div>
                <div class="main">
                   <!-- Another variation with a button -->
                   <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Search from Alnafeh">
+                     <input type="text" class="form-control" placeholder="Search this blog">
                      <div class="input-group-append">
                         <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
                            <i class="fa fa-search"></i>
