@@ -123,22 +123,28 @@ if ($mypage == 'contact.php') {
             <div class="containt_main">
                <div id="mySidenav" class="sidenav">
                   <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                  <a href="index.html">Home</a>
-                  <a href="fashion.html">Fashion</a>
-                  <a href="electronic.html">Electronic</a>
-                  <a href="jewellery.html">Jewellery</a>
+                  <?php
+                  foreach ($cat_arr as $list) {
+                  ?>
+                     <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                  <?php
+                  }
+                  ?>
                </div>
                <span class="toggle_icon" onclick="openNav()"><img src="images/toggle-icon.png"></span>
                <div class="dropdown">
                   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category
                   </button>
                   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                     <?php foreach ($cat_arr as $list) : ?>
-                        <a class="dropdown-item" href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a>
-                     <?php endforeach; ?>
+                     <?php
+                     foreach ($cat_arr as $list) {
+                     ?>
+                        <li><a href="categories.php?id=<?php echo $list['id'] ?>"><?php echo $list['categories'] ?></a></li>
+                     <?php
+                     }
+                     ?>
                   </div>
                </div>
-               <div class="main">
                   <!-- Another variation with a button -->
                   <div class="input-group">
                      <input type="text" class="form-control" placeholder="Search this blog">
