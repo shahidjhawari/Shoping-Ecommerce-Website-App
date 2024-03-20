@@ -1081,7 +1081,4 @@ input.mail_bt::placeholder {
       .icon i {
         font-size: 2em; /* Adjust the size of the icon as needed */
       }
-    .copyright_section {
-        margin-bottom: 40px;
-    }
 }
