@@ -155,12 +155,10 @@ function wishlist_manage(pid, type) {
   });
 }
 
-// animation loading
-$("#loading-animation").fadeIn(500);
-setTimeout(function () {
-  $("#loading-animation").fadeOut(500);
-  $("#page-content").fadeIn(500);
-}, 1000); 
+// // animation loading
+$(window).on('load', function(){
+  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+});
 
 // Offline & online code
 window.addEventListener('load', function() {
@@ -178,3 +176,4 @@ window.addEventListener('load', function() {
   window.addEventListener('offline', updateOnlineStatus);
   updateOnlineStatus();
 });
+

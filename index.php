@@ -14,6 +14,33 @@
 </div>
 <!-- Loading animation end -->
 
+<style>
+    #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        #status {
+            text-align: center;
+        }
+</style>
+
+<!-- Preloader -->
+<div id="preloader">
+    <div id="status">
+        <img src="images/giphy.gif" width="300px" alt="">
+    </div>
+</div>
+
+
 <div id="page-content" style="display: none;">
     <?php require('top.php') ?>
     <style>
@@ -46,35 +73,35 @@
         }
     </style>
 
-<!-- latest product section start -->
-<div class="container text-center">
-   <div class="row box">
-      <?php
-      $get_product = get_product($con, 16);
-      foreach ($get_product as $list) {
-      ?>
-         <div class="col item-1">
-            <a href="product.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="80%" alt=""></a>
-            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 25 ? substr($list['name'], 0, 25) . '...' : $list['name'] ?></a></h6>
-            <h3>Rs.<?php echo $list['price'] ?></h3>
-            <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
-            <div class="neeche-wala">
-                <div class="stars">
-                    <small class="fa fa-star text-warning mr-1"></small>
-                    <small class="fa fa-star text-warning mr-1"></small>
-                    <small class="fa fa-star text-warning mr-1"></small>
-                    <small class="fa fa-star text-warning mr-1"></small>
-                    <small class="fa fa-star text-warning mr-1"></small>
+    <!-- latest product section start -->
+    <div class="container text-center">
+        <div class="row box">
+            <?php
+            $get_product = get_product($con, 16);
+            foreach ($get_product as $list) {
+            ?>
+                <div class="col item-1">
+                    <a href="product.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="80%" alt=""></a>
+                    <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 25 ? substr($list['name'], 0, 25) . '...' : $list['name'] ?></a></h6>
+                    <h3>Rs.<?php echo $list['price'] ?></h3>
+                    <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
+                    <div class="neeche-wala">
+                        <div class="stars">
+                            <small class="fa fa-star text-warning mr-1"></small>
+                            <small class="fa fa-star text-warning mr-1"></small>
+                            <small class="fa fa-star text-warning mr-1"></small>
+                            <small class="fa fa-star text-warning mr-1"></small>
+                            <small class="fa fa-star text-warning mr-1"></small>
+                        </div>
+                        <div class="add-to-cart">
+                            <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
+                        </div>
+                    </div>
                 </div>
-                <div class="add-to-cart">
-                    <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
-                </div>
-            </div>
-         </div>
-      <?php } ?>
-   </div>
-</div>
-<!-- latest product section end -->
+            <?php } ?>
+        </div>
+    </div>
+    <!-- latest product section end -->
 
     <!-- electronic section start -->
     <div class="fashion_section">
