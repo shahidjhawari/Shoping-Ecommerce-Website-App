@@ -3,7 +3,7 @@ require('top.php');
 if (!isset($_SESSION['cart']) || count($_SESSION['cart']) == 0) {
 ?>
 	<script>
-		window.location.href = 'index.php';
+		window.location.href = 'login.php';
 	</script>
 	<?php
 }
