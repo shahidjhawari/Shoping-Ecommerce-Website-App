@@ -38,75 +38,35 @@
         }
     </style>
 
-    <!-- latest product section start -->
-    <div class="container text-center">
-        <div class="row box">
-            <?php
-            $get_product = get_product($con, 64);
-            foreach ($get_product as $list) {
-            ?>
-                <div class="col item-1">
-                    <a href="#" class="product-link" data-product-id="<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="80%" alt=""></a>
-                    <h6><a href="#" class="product-link" data-product-id="<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 25 ? substr($list['name'], 0, 25) . '...' : $list['name'] ?></a></h6>
-                    <h3>Rs.<?php echo $list['price'] ?></h3>
-                    <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
-                    <div class="neeche-wala">
-                        <div class="stars">
-                            <small class="fa fa-star text-warning mr-1"></small>
-                            <small class="fa fa-star text-warning mr-1"></small>
-                            <small class="fa fa-star text-warning mr-1"></small>
-                            <small class="fa fa-star text-warning mr-1"></small>
-                            <small class="fa fa-star text-warning mr-1"></small>
-                        </div>
-                        <div class="add-to-cart">
-                            <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
-                        </div>
-                    </div>
+<!-- latest product section start -->
+<div class="container text-center">
+   <div class="row box">
+      <?php
+      $get_product = get_product($con, 16);
+      foreach ($get_product as $list) {
+      ?>
+         <div class="col item-1">
+            <a href="product.php?id=<?php echo $list['id'] ?>"><img src="<?php echo PRODUCT_IMAGE_SITE_PATH . $list['image'] ?>" width="80%" alt=""></a>
+            <h6><a href="product.php?id=<?php echo $list['id'] ?>"><?php echo strlen($list['name']) > 25 ? substr($list['name'], 0, 25) . '...' : $list['name'] ?></a></h6>
+            <h3>Rs.<?php echo $list['price'] ?></h3>
+            <h5><del>Rs.<?php echo $list['mrp'] ?></del></h5>
+            <div class="neeche-wala">
+                <div class="stars">
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
+                    <small class="fa fa-star text-warning mr-1"></small>
                 </div>
-            <?php } ?>
-        </div>
-    </div>
-    <!-- latest product section end -->
-
-    <!-- Product detail modal -->
-    <div class="modal fade" id="productDetailModal" tabindex="-1" role="dialog" aria-labelledby="productDetailModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-lg" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="productDetailModalLabel">Product Detail</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body" id="productDetailBody">
-                    <!-- Product details will be loaded here via AJAX -->
+                <div class="add-to-cart">
+                    <button class="btn btn-danger btn-add-to-cart"><a href="javascript:void(0)" onclick="wishlist_manage('<?php echo $list['id'] ?>','add')">Add item +</a></button>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <script>
-        $(document).ready(function() {
-            $('.product-link').click(function(e) {
-                e.preventDefault(); // Prevent default action of clicking on the link
-
-                var productId = $(this).data('product-id');
-
-                $.ajax({
-                    url: 'product_details.php', // Change this to the actual URL of your product details page
-                    type: 'GET',
-                    data: {
-                        id: productId
-                    },
-                    success: function(response) {
-                        $('#productDetailBody').html(response);
-                        $('#productDetailModal').modal('show');
-                    }
-                });
-            });
-        });
-    </script>
-
+         </div>
+      <?php } ?>
+   </div>
+</div>
+<!-- latest product section end -->
 
     <!-- electronic section start -->
     <div class="fashion_section">
