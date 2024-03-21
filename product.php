@@ -145,7 +145,7 @@ if (isset($_GET['id'])) {
   <div class="product-categories">
     <?php echo $get_product['0']['categories'] ?>
   </div>
-  <div class="product-long-description"><?php echo $get_product['0']['description'] ?></div>
+  <div class="product-long-description"><?php echo strlen($get_product['0']['description']) > 500 ? substr($get_product['0']['description'], 0, 500) . '...' : $get_product['0']['description']; ?></div>
 
   <div id="social_share_box">
     <a href="https://www.facebook.com/share.php?u=<?php echo $meta_url ?>"><img src='images/facebook.png' width="50px" /></a>
