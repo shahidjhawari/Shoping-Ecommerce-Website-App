@@ -1076,5 +1076,9 @@ input.mail_bt::placeholder {
         display: flex;
         justify-content: center;
         align-items: center;
-    }
+      }
+      
+      .icon i {
+        font-size: 2em; /* Adjust the size of the icon as needed */
+      }
 }
