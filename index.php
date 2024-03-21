@@ -1,11 +1,7 @@
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<!-- Include jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
 <!-- Loading animation -->
 <div id="loading-animation" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999;">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
-        <img src="loading.gif" alt="Loading..." width="100" height="100">
+        <img src="images/giphy.gif" alt="Loading..." width="200" height="200">
     </div>
 </div>
 
@@ -250,6 +246,6 @@
             $('#loading-animation').fadeOut(500);
             // Show page content
             $('#page-content').fadeIn(500);
-        }, 5000); // 5000 milliseconds = 5 seconds
+        }, 3000); // 5000 milliseconds = 5 seconds
     });
 </script>
