@@ -1079,6 +1079,9 @@ input.mail_bt::placeholder {
       }
       
       .icon i {
-        font-size: 2em; /* Adjust the size of the icon as needed */
+        font-size: 2em; 
+      }
+      .copyright_section  {
+        margin-bottom: 30px;
       }
 }
