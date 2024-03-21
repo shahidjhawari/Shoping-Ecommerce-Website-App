@@ -1,10 +1,18 @@
-<!-- Loading animation -->
+<!-- Loading animation start -->
 <div id="loading-animation" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999;">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <img src="images/giphy.gif" alt="Loading..." width="200" height="200">
     </div>
 </div>
+<!-- Loading animation end -->
 
+<!-- Loading animation start -->
+<div id="loading-animation1" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999;">
+    <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
+        <img id="offline-image" src="images/offline.jpg" alt="You are offline" width="200" height="200">
+    </div>
+</div>
+<!-- Loading animation end -->
 
 <div id="page-content" style="display: none;">
     <?php require('top.php') ?>
@@ -194,18 +202,3 @@
 
     <?php require('footer.php') ?>
 </div>
-
-<script>
-    $(document).ready(function() {
-        // Show loading animation
-        $('#loading-animation').fadeIn(500);
-
-        // Simulate delay for 5 seconds
-        setTimeout(function() {
-            // Hide loading animation
-            $('#loading-animation').fadeOut(500);
-            // Show page content
-            $('#page-content').fadeIn(500);
-        }, 3000); // 5000 milliseconds = 5 seconds
-    });
-</script>
