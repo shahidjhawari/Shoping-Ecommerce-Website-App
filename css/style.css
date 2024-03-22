@@ -1069,6 +1069,7 @@ input.mail_bt::placeholder {
         top: 93vh;
         left: 0;
         background: #FBA834;
+        z-index: 3;
     }
     .icon {
         height: 100%;
