@@ -147,15 +147,17 @@ if ($mypage == 'contact.php') {
                </div>
                <div class="main">
                   <!-- Another variation with a button -->
+                  <form action="search.php" method="get">
                   <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Search from Alnafeh">
+                     <input type="text" name="str" class="form-control" placeholder="Search from Alnafeh">
                      <div class="input-group-append">
-                        <button class="btn btn-secondary" type="button" style="background-color: #f26522; border-color:#f26522 ">
+                        <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522 ">
                            <i class="fa fa-search"></i>
                         </button>
                      </div>
                   </div>
                </div>
+               </form>
                <div class="header_box">
                   <div class="lang_box ">
                      <?php if (isset($_SESSION['USER_LOGIN'])) { ?>

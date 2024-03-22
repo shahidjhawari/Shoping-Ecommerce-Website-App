@@ -131,6 +131,10 @@ if (isset($_GET['id'])) {
     function showMultipleImage(imagePath) {
       document.getElementById('mainProductImage').src = imagePath;
     }
+
+    window.onload = function() {
+        window.scrollTo(0, 500);
+    };
   </script>
 
 

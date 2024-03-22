@@ -57,6 +57,12 @@ if($cat_id > 0 && $sub_categories != '') {
 
 ?>
 
+<script>
+    window.onload = function() {
+        window.scrollTo(0, 500);
+    };
+</script>
+
 <style>
    .item-1 {
       border: 1px solid orange;

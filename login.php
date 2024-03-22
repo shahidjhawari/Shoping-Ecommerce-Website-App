@@ -107,89 +107,8 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
     </div>
 </div>
 
-<script>
-    // Function to toggle password visibility for registration form
-    document.getElementById('togglePassword').addEventListener('click', function() {
-        const passwordInput = document.getElementById('password');
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.querySelector('i').classList.toggle('fa-eye-slash');
-        this.querySelector('i').classList.toggle('fa-eye');
-    });
-
-    // Function to toggle password visibility for login form
-    document.getElementById('toggleLoginPassword').addEventListener('click', function() {
-        const passwordInput = document.getElementById('login_password');
-        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-        passwordInput.setAttribute('type', type);
-        this.querySelector('i').classList.toggle('fa-eye-slash');
-        this.querySelector('i').classList.toggle('fa-eye');
-    });
-</script>
-
 
 <input type="hidden" id="is_email_verified" />
 <input type="hidden" id="is_mobile_verified" />
-<script>
-    function email_sent_otp() {
-        jQuery('#email_error').html('');
-        var email = jQuery('#email').val();
-        if (email == '') {
-            jQuery('#email_error').html('Please enter email id');
-
-        } else {
-            jQuery('.email_sent_otp').html('Please wait..');
-            jQuery('.email_sent_otp').attr('disabled', true);
-            jQuery.ajax({
-                url: 'send_otp.php',
-                type: 'post',
-                data: 'email=' + email + '&type=email',
-                success: function(result) {
-                    if (result == 'done') {
-                        jQuery('#email').attr('disabled', true);
-                        jQuery('.email_verify_otp').show();
-                        jQuery('.email_sent_otp').hide();
-
-                    } else if (result == 'email_present') {
-                        jQuery('.email_sent_otp').html('Send OTP');
-                        jQuery('.email_sent_otp').attr('disabled', false);
-                        jQuery('#email_error').html('Email id already exists');
-                    } else {
-                        jQuery('.email_sent_otp').html('Send OTP');
-                        jQuery('.email_sent_otp').attr('disabled', false);
-                        jQuery('#email_error').html('Please try after sometime');
-                    }
-                }
-            });
-        }
-    }
-
-    function email_verify_otp() {
-        jQuery('#email_error').html('');
-        var email_otp = jQuery('#email_otp').val();
-        if (email_otp == '') {
-            jQuery('#email_error').html('Please enter OTP');
-        } else {
-            jQuery.ajax({
-                url: 'check_otp.php',
-                type: 'post',
-                data: 'otp=' + email_otp + '&type=email',
-                success: function(result) {
-                    if (result == 'done') {
-                        jQuery('.email_verify_otp').hide();
-                        jQuery('#email_otp_result').html('Email id verified');
-                        jQuery('#is_email_verified').val('1');
-                        if (jQuery('#is_email_verified').val() == 1) {
-                            jQuery('#btn_register').attr('disabled', false);
-                        }
-                    } else {
-                        jQuery('#email_error').html('Please enter valid OTP');
-                    }
-                }
-
-            });
-        }
-    }
-</script>
 
 <?php include('footer.php') ?>
