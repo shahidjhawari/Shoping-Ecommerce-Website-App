@@ -38,7 +38,7 @@
   <a href="my_order.php" class="icon">
     <i class="fas fa-clipboard-check"></i>
   </a>
-  <a href="login.php" class="icon">
+  <a href="home.php" class="icon">
     <i class="fas fa-sign-in-alt"></i>
   </a>
 </div>
