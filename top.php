@@ -76,7 +76,7 @@ if ($mypage == 'contact.php') {
    <!-- fonts -->
    <link href="https://fonts.googleapis.com/css?family=Poppins:400,700&display=swap" rel="stylesheet">
    <!-- font awesome -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
    <!--  -->
    <!-- owl stylesheets -->
    <link href="https://fonts.googleapis.com/css?family=Great+Vibes|Poppins:400,700&display=swap&subset=latin-ext" rel="stylesheet">
@@ -148,17 +148,16 @@ if ($mypage == 'contact.php') {
                <div class="main">
                   <!-- Another variation with a button -->
                   <form action="search.php" method="get">
-                     <div class="input-group">
-                        <input type="text" name="str" class="form-control" placeholder="Search from Alnafeh">
-                        <div class="input-group-append">
-                           <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522 ">
-                              <i class="fa fa-search"></i>
-                           </button>
-                        </div>
+                  <div class="input-group">
+                     <input type="text" name="str" class="form-control" placeholder="Search from Alnafeh">
+                     <div class="input-group-append">
+                        <button class="btn btn-secondary" type="submit" style="background-color: #f26522; border-color:#f26522 ">
+                           <i class="fa fa-search"></i>
+                        </button>
                      </div>
-                  </form>
+                  </div>
                </div>
-
+               </form>
                <div class="header_box">
                   <div class="lang_box ">
                      <?php if (isset($_SESSION['USER_LOGIN'])) { ?>
