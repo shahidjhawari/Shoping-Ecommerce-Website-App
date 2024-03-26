@@ -49,7 +49,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
         if (mysqli_num_rows($res) > 0) {
             while ($row = mysqli_fetch_assoc($res)) {
         ?>
-                <span class="order-status btn btn-warning"><b><a href="my_order_details.php?id=<?php echo $row['id'] ?>">Your Order Is : <?php echo $row['order_status_str'] ?></a></b></span> <!-- Move Order Status here -->
+                <span class="order-status btn btn-warning"><b><a href="my_order_details.php?id=<?php echo $row['id'] ?>">Your Order <?php echo $row['id'] ?> Is  : <?php echo $row['order_status_str'] ?></a></b></span> <!-- Move Order Status here -->
         <?php
             }
         } else {
