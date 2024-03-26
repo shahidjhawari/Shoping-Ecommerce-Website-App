@@ -6,7 +6,7 @@ if (!isset($_SESSION['USER_LOGIN'])) {
         window.location.href = 'login.php';
     </script>
 <?php
-    exit(); 
+exit(); // Add exit to stop further execution if not logged in
 }
 
 $accordion_class = 'accordion__title';
@@ -34,9 +34,9 @@ if (isset($_SESSION['USER_LOGIN'])) {
                     while ($row = mysqli_fetch_assoc($res)) {
                 ?>
                         <tr>
-                            <td><a href="my_order_details.php?id=<?php echo $row['id'] ?>"><?php echo $row['id'] ?></a></td>
+                            <td><a href="my_order_details.php?id=<?php echo $row['id'] ?>" class="btn btn-primary btn-sm"><?php echo $row['id'] ?></a></td>
                             <td><?php echo $row['added_on'] ?></td>
-                            <td><?php echo $row['address'] ?><br />
+                            <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?php echo $row['address'] ?><br />
                                 <?php echo $row['city'] ?><br />
                                 <?php echo $row['pincode'] ?></td>
                             <td><?php echo $row['payment_type'] ?></td>
