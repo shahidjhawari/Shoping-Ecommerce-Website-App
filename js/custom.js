@@ -157,8 +157,13 @@ function wishlist_manage(pid, type) {
 
 // // animation loading
 $(window).on('load', function(){
-  $('#preloader').fadeOut('slow',function(){$(this).remove();});
+  setTimeout(function() {
+    $('#preloader').fadeOut('slow', function() {
+      $(this).remove();
+    });
+  }, 3000); // 3000 milliseconds = 3 seconds
 });
+
 
 // Offline & online code
 window.addEventListener('load', function() {
