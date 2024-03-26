@@ -9,16 +9,7 @@ if (!isset($_SESSION['USER_LOGIN'])) {
 }
 $order_id = get_safe_value($con, $_GET['id']);
 ?>
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Details</title>
-</head>
-
-<body>
     <div class="container mt-5">
         <span>Product Details</span>
         <table class="table table-bordered">
@@ -52,10 +43,6 @@ $order_id = get_safe_value($con, $_GET['id']);
             </tbody>
         </table>
     </div>
-
-    <!-- Bootstrap JavaScript and jQuery (optional) -->
-</body>
-</html>
 
 
 
