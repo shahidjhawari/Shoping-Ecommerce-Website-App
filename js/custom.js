@@ -156,14 +156,13 @@ function wishlist_manage(pid, type) {
 }
 
 // // animation loading
-$(window).on('load', function(){
-  setTimeout(function() {
-    $('#preloader').fadeOut('slow', function() {
-      $(this).remove();
-    });
-  }, 3000); // 3000 milliseconds = 3 seconds
-});
+function showContent() {
+  document.getElementById('loading-animation').style.display = 'none';
+  document.getElementById('page-content').style.display = 'block';
+}
 
+// Initial delay to show the loading animation for 3 seconds
+setTimeout(showContent, 3000);
 
 // Offline & online code
 window.addEventListener('load', function() {

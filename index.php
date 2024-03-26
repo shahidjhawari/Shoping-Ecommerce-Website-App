@@ -1,5 +1,5 @@
 <!-- Loading animation start -->
-<div id="loading-animation" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999;">
+<div id="loading-animation" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(255, 255, 255, 0.9); z-index: 9999;">
     <div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);">
         <img src="images/giphy.gif" alt="Loading..." width="200" height="200">
     </div>
@@ -32,13 +32,6 @@
             text-align: center;
         }
 </style>
-
-<!-- Preloader -->
-<div id="preloader">
-    <div id="status">
-        <img src="images/giphy.gif" width="300px" alt="">
-    </div>
-</div>
 
 
 <div id="page-content" style="display: none;">
