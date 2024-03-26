@@ -13,7 +13,7 @@ $accordion_class = 'accordion__title';
 if (isset($_SESSION['USER_LOGIN'])) {
     $accordion_class = 'accordion__hide';
 ?>
-    <div class="container mt-5">
+    <div class="container mt-5 table-responsive">
         <span>Order Details</span>
         <table class="table table-bordered">
             <thead>
