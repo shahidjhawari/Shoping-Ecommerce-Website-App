@@ -15,7 +15,7 @@ if (isset($_SESSION['USER_LOGIN'])) {
 ?>
     <div class="container mt-5">
         <span>Order Details</span>
-        <table class="table table-bordered">
+        <table class="table table-bordered" style="overflow: auto;">
             <thead>
                 <tr>
                     <th>Order ID</th>
