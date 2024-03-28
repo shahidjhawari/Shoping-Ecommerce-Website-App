@@ -37,7 +37,7 @@ if (isset($_SESSION['USER_LOGIN']) && $_SESSION['USER_LOGIN'] == 'yes') {
             <form id="register-form" method="post" action="index.php">
                 <div class="form-group">
                     <label for="name">Name</label>
-                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" required><br>
+                    <input type="text" class="form-control" name="name" id="name" placeholder="Enter your name" maxlength="14" required><br>
                     <span class="field_error" id="name_error"></span>
                 </div>
                 <div class="form-group">
