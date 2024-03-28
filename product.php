@@ -163,7 +163,7 @@ if (isset($_GET['id'])) {
   </div>
 
   <a href="cart.php" class="btn btn-primary add-to-cart-btn" onclick="manage_cart('<?php echo $get_product['0']['id'] ?>','add')">Add to cart</a>
-  <a href="#" class="btn btn-success buy-now-btn">Buy Now</a>
+  <a href="checkout.php" class="btn btn-success buy-now-btn" onclick="manage_cart('<?php echo $get_product['0']['id']?>','add','yes')">Buy Now</a>
 </div>
 
 
