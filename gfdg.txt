@@ -1,0 +1,18 @@
+<?php
+        $uid = $_SESSION['USER_ID'];
+        $res = mysqli_query($con, "SELECT `order`.*, order_status.name AS order_status_str FROM `order` INNER JOIN order_status ON order_status.id = `order`.order_status WHERE `order`.user_id='$uid'");
+        if (mysqli_num_rows($res) > 0) {
+            while ($row = mysqli_fetch_assoc($res)) {
+        ?>
+                        <caption style="caption-side: top;" class="order-status btn btn-warning"><b><a href="my_order_details.php?id=<?php echo $row['id'] ?>">Your Order <?php echo $row['id'] ?> Is : <?php echo $row['order_status_str'] ?></a></b></caption>
+                <?php
+            }
+        } else {
+            echo "<tr><td colspan='6'>No orders found</td></tr>";
+        }
+                ?>
+
+
+                <td style="max-width: 200px; overflow: hidden; text-overflow: ellipsis;"><?php echo $row['address'] ?><br />
+                                <?php echo $row['city'] ?><br />
+                                <?php echo $row['pincode'] ?></td>
